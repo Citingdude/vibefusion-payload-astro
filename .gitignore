@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+
+# Turborepo cache
+.turbo/
+
+# build output and tooling caches
+dist/
+.next/
+.astro/
+coverage/
+
+# test reports
+test-results/
+playwright-report/
+blob-report/
+
+# logs
+*.log
+
+# local environment files (keep .env.example files tracked)
+.env
+.env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+
+# operating-system files
+.DS_Store
