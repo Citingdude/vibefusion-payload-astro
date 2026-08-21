@@ -1,5 +1,6 @@
 ---
-import AppNav from '@/components/app/nav/AppNav.astro'
+import AppHeader from '@/components/app/header/AppHeader.astro'
+import '@/styles/global.css'
 
 const { title } = Astro.props;
 
@@ -13,9 +14,7 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
-    <header>
-      <AppNav />
-    </header>
+    <AppHeader />
     <main>
       <slot />
     </main>
