@@ -20,7 +20,7 @@ const { totalDocs: mediaCount, docs } = await payload.find({
 
       {docs.map(item => (
         <p>{item.alt}</p>
-        <img class="size-8" src={`http://localhost:3000${item.url}`} />
+        <img class="size-8" src={item.url} />
 ))}
     </div>
   </section>
