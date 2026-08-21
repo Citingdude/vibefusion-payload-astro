@@ -1,0 +1,20 @@
+{
+  "name": "avoid-relative-imports",
+  "description": "Always use absolute path aliases (e.g., @/) instead of relative imports. Check all imports before making changes.",
+  "rules": [
+    "Never import with relative paths like './', '../', or '/'",
+    "Always convert relative imports to absolute path aliases using '@/'",
+    "Ensure tsconfig.json has the correct baseUrl and paths configuration",
+    "Check existing files for relative imports before refactoring"
+  ],
+  "beforeEditing": [
+    "grep -r \"from './\" \\| from '../\" \\| from '/' . && echo 'WARNING: Relative imports detected. Convert to @/ aliases first.'",
+    "Verify baseUrl is set in tsconfig.json (usually '.')",
+    "Check paths configuration includes '@/*' pointing to correct root"
+  ],
+  "always": [
+    "Convert any relative imports found to use '@/' alias before editing",
+    "Update both the import statement and any corresponding exports if needed",
+    "Verify TypeScript compiles without errors after changes"
+  ]
+}

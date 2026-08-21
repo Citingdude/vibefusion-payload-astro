@@ -1,0 +1,27 @@
+{
+  "name": "payload-collection-convention",
+  "description": "Manages Payload CMS collections with a standardized naming convention and directory structure.",
+  "version": "1.0.0",
+  "instructions": [
+    "Always organize Payload collections in the src/collections/ directory with directories (no flat files).",
+    "Name all collection exports using <collectionSlug>Collection format: userCollection, mediaCollection, postCollection.",
+    "Use pattern: <slug>/<collection-file>.collection.ts where the collection file is named <slug>.collection.ts.",
+    "Example: user/user.collection.ts (exporting userCollection), post/post.collection.ts (exporting postCollection).",
+    "Create an index.ts file at src/collections/index.ts that exports all collections individually.",
+    "In payload.config.ts, import individual collections from './collections' and create a local collections array.",
+    "When creating new collections:",
+    "  1. Create a directory named after the collection slug (e.g., users/)",
+    "  2. Create <slug>.collection.ts inside that directory",
+    "  3. Export using <collectionSlug>Collection naming (users/user.collection.ts -> export userCollection)",
+    "  4. Update src/collections/index.ts to export the new collection individually",
+    "  5. payload.config.ts will import from './collections' and create a local array",
+    "This ensures a clean, organized structure without mixed naming conventions.",
+    "Avoid: flat-file collections (Users.ts), or PASCASE naming (Users, Media)"
+  ],
+  "capabilities": [
+    "refactor_collection_structure",
+    "update_import_paths",
+    "create_standardized_collections",
+    "manage_index_exports"
+  ]
+}
