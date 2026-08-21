@@ -1,9 +1,18 @@
 ---
 import Layout from '@/layouts/Layout.astro'
+import { getLocalPayload } from '@/lib/payload'
+
+const payload = await getLocalPayload()
+const { totalDocs: mediaCount } = await payload.find({
+  collection: 'media',
+  depth: 0,
+  limit: 0,
+})
 ---
 
 <Layout>
   <section>
     <h1>Astro</h1>
+    <p>{mediaCount} media {mediaCount === 1 ? 'item' : 'items'} in Payload.</p>
   </section>
 </Layout>

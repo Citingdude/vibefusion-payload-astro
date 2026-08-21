@@ -3,7 +3,7 @@
 ## Apps
 
 - `apps/astro` — minimal Astro starter
-- `apps/payload` — blank Payload CMS starter, configured for MongoDB
+- `apps/payload` — Payload CMS, configured for PostgreSQL
 
 ## Development
 
@@ -16,4 +16,6 @@ pnpm dev
 
 Astro runs at `http://localhost:4321`; Payload runs at `http://localhost:3000`.
 
-Before starting Payload, copy `apps/payload/.env.example` to `apps/payload/.env` and provide a MongoDB connection string and secure Payload secret.
+Before starting either app, copy `apps/payload/.env.example` to `apps/payload/.env` and provide a PostgreSQL connection string and secure Payload secret. Astro's Local API helper loads this file before initializing Payload. In deployment, set `DATABASE_URL` and `PAYLOAD_SECRET` as runtime environment variables; those values take precedence.
+
+The Local API helper lives in `apps/astro/src/lib/payload.ts`. It is server-only and is used by the homepage and `GET /api/media.json`.

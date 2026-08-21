@@ -5,9 +5,11 @@ import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
 import sharp from 'sharp'
 
-import collections from '@/collections'
-import { userCollection } from '@/collections/users/user.collection'
-import { migrations } from '@/migrations'
+// Keep these imports relative so this config can be consumed by applications
+// other than Next.js (for example Astro's server runtime).
+import collections from './collections'
+import { userCollection } from './collections/users/user.collection'
+import { migrations } from './migrations'
 
 
 const filename = fileURLToPath(import.meta.url)
