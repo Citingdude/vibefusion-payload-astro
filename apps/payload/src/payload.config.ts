@@ -27,11 +27,10 @@ export default buildConfig({
   },
   db: postgresAdapter({
     idType: 'uuid',
-    schemaName: 'payload',
     prodMigrations: migrations,
     push: false,
     pool: {
-      connectionString: process.env.POSTGRES_URI ?? '',
+      connectionString: process.env.DATABASE_URL ?? '',
     },
   }),
   sharp,

@@ -2,9 +2,9 @@
   "version": "7",
   "dialect": "postgresql",
   "tables": {
-    "payload.users_sessions": {
+    "public.users_sessions": {
       "name": "users_sessions",
-      "schema": "payload",
+      "schema": "",
       "columns": {
         "_order": {
           "name": "_order",
@@ -74,7 +74,6 @@
           "name": "users_sessions_parent_id_fk",
           "tableFrom": "users_sessions",
           "tableTo": "users",
-          "schemaTo": "payload",
           "columnsFrom": [
             "_parent_id"
           ],
@@ -91,9 +90,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "payload.users": {
+    "public.users": {
       "name": "users",
-      "schema": "payload",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
@@ -214,9 +213,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "payload.media": {
+    "public.media": {
       "name": "media",
-      "schema": "payload",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
@@ -354,9 +353,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "payload.payload_kv": {
+    "public.payload_kv": {
       "name": "payload_kv",
-      "schema": "payload",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
@@ -402,9 +401,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "payload.payload_locked_documents": {
+    "public.payload_locked_documents": {
       "name": "payload_locked_documents",
-      "schema": "payload",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
@@ -488,9 +487,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "payload.payload_locked_documents_rels": {
+    "public.payload_locked_documents_rels": {
       "name": "payload_locked_documents_rels",
-      "schema": "payload",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
@@ -611,7 +610,6 @@
           "name": "payload_locked_documents_rels_parent_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "payload_locked_documents",
-          "schemaTo": "payload",
           "columnsFrom": [
             "parent_id"
           ],
@@ -625,7 +623,6 @@
           "name": "payload_locked_documents_rels_users_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "users",
-          "schemaTo": "payload",
           "columnsFrom": [
             "users_id"
           ],
@@ -639,7 +636,6 @@
           "name": "payload_locked_documents_rels_media_fk",
           "tableFrom": "payload_locked_documents_rels",
           "tableTo": "media",
-          "schemaTo": "payload",
           "columnsFrom": [
             "media_id"
           ],
@@ -656,9 +652,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "payload.payload_preferences": {
+    "public.payload_preferences": {
       "name": "payload_preferences",
-      "schema": "payload",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
@@ -748,9 +744,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "payload.payload_preferences_rels": {
+    "public.payload_preferences_rels": {
       "name": "payload_preferences_rels",
-      "schema": "payload",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
@@ -850,7 +846,6 @@
           "name": "payload_preferences_rels_parent_fk",
           "tableFrom": "payload_preferences_rels",
           "tableTo": "payload_preferences",
-          "schemaTo": "payload",
           "columnsFrom": [
             "parent_id"
           ],
@@ -864,7 +859,6 @@
           "name": "payload_preferences_rels_users_fk",
           "tableFrom": "payload_preferences_rels",
           "tableTo": "users",
-          "schemaTo": "payload",
           "columnsFrom": [
             "users_id"
           ],
@@ -881,9 +875,9 @@
       "checkConstraints": {},
       "isRLSEnabled": false
     },
-    "payload.payload_migrations": {
+    "public.payload_migrations": {
       "name": "payload_migrations",
-      "schema": "payload",
+      "schema": "",
       "columns": {
         "id": {
           "name": "id",
@@ -960,9 +954,7 @@
     }
   },
   "enums": {},
-  "schemas": {
-    "payload": "payload"
-  },
+  "schemas": {},
   "sequences": {},
   "roles": {},
   "policies": {},
@@ -972,6 +964,6 @@
     "tables": {},
     "columns": {}
   },
-  "id": "381bcdc4-ba77-468f-9d9c-d1f42642925f",
+  "id": "4b80c585-70d9-45f9-81bd-3b845740ea93",
   "prevId": "00000000-0000-0000-0000-000000000000"
 }
