@@ -4,11 +4,15 @@ import type { HTMLAttributes } from 'astro/types'
 type AnchorAttributes = Omit<HTMLAttributes<'a'>, 'href' | 'target' | 'rel'>
 type ButtonAttributes = Omit<HTMLAttributes<'button'>, 'type'>
 
-type ButtonColor = 'purple' | 'white' | 'transparent' | 'transparentWhite'
+type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface Props extends AnchorAttributes, ButtonAttributes {
-  color?: ButtonColor
+  /**
+   * Semantic button treatment. Colours are defined by the shared Tailwind
+   * design tokens, rather than by individual colour names.
+   */
+  variant?: ButtonVariant
   size?: ButtonSize
   href?: string | URL
   target?: '_blank' | '_parent' | '_self' | '_top'
@@ -17,7 +21,7 @@ interface Props extends AnchorAttributes, ButtonAttributes {
 }
 
 const {
-  color = 'purple',
+  variant = 'primary',
   size = 'md',
   href,
   target,
@@ -28,18 +32,18 @@ const {
 } = Astro.props
 
 const buttonClasses = [
-  'w-full rounded-br-xl rounded-tl-xl text-center font-display font-bold transition hover:-translate-y-1 hover:shadow-xl sm:w-fit',
+  'inline-flex w-full items-center justify-center rounded-br-md rounded-tl-md font-display font-bold duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 sm:w-fit transition-all',
   {
-    sm: 'border px-4 py-2 text-base',
-    md: 'border-2 px-5 py-3 text-lg',
-    lg: 'border-2 px-6 py-4 text-xl',
+    sm: 'px-4 py-2 text-sm',
+    md: 'px-5 py-3 text-base',
+    lg: 'px-6 py-4 text-lg',
   }[size],
   {
-    purple: 'border-accent bg-accent text-light-main',
-    white: 'border-light-main bg-light-alt text-accent hover:border-accent',
-    transparent: 'border-accent',
-    transparentWhite: 'border-accent text-light-main',
-  }[color],
+    primary: 'bg-brand text-white hover:bg-brand-hover active:bg-brand-active',
+    secondary: 'border border-border bg-surface text-foreground hover:border-brand hover:bg-brand-subtle',
+    outline: 'border border-brand text-brand hover:bg-brand-subtle active:bg-brand-subtle',
+    ghost: 'text-brand hover:bg-brand-subtle active:bg-brand-subtle',
+  }[variant],
 ]
 ---
 

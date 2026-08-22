@@ -14,17 +14,32 @@
   --font-display: "Alegreya", "serif";
   --font-body: "Alegreya Sans", "sans-serif";
 
-  --color-accent: #6666CC;
-  --color-accent-light: #D3D3F0;
-  --color-accent-dark: #161642;
+  /* Brand: preserve the logo’s exact purple */
+  --color-brand: #66c;
+  --color-brand-hover: #5858b8;
+  --color-brand-active: #4b4ba1;
+  --color-brand-subtle: #eeeeff;
 
-  --color-light-main: #ffffff;
-  --color-light-alt: #F4F4FB;
+  /* Semantic UI colours */
+  --color-background: #fcfcfe;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f5fa;
+  --color-foreground: #1e1e2b;
+  --color-foreground-muted: #656579;
+  --color-border: #dedee8;
+  --color-focus: #66c;
 
-  --color-dark-400: #14141F;
-  --color-dark-300: #212133;
-  --color-dark-200: #2D2D47;
-  --color-dark-100: #3A3A5B;
+  --color-success: #23855a;
+  --color-warning: #b96d08;
+  --color-danger: #c23b4d;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --shadow-card: 0 1px 2px rgb(30 30 43 / 6%),
+                 0 8px 24px rgb(30 30 43 / 8%);
 
   --animate-slideDownAndFade: slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
   --animate-slideLeftAndFade: slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
