@@ -9,3 +9,184 @@
   margin-inline: auto;
   padding-inline: 2rem;
 }
+
+@theme {
+  --font-display: "Alegreya", "serif";
+  --font-body: "Alegreya Sans", "sans-serif";
+
+  --color-accent: #6666CC;
+  --color-accent-light: #D3D3F0;
+  --color-accent-dark: #161642;
+
+  --color-light-main: #ffffff;
+  --color-light-alt: #F4F4FB;
+
+  --color-dark-400: #14141F;
+  --color-dark-300: #212133;
+  --color-dark-200: #2D2D47;
+  --color-dark-100: #3A3A5B;
+
+  --animate-slideDownAndFade: slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slideLeftAndFade: slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slideUpAndFade: slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slideRightAndFade: slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-scaleIn: scaleIn 200ms ease;
+  --animate-scaleOut: scaleOut 200ms ease;
+  --animate-fadeIn: fadeIn 200ms ease;
+  --animate-fadeOut: fadeOut 200ms ease;
+  --animate-enterFromLeft: enterFromLeft 250ms ease;
+  --animate-enterFromRight: enterFromRight 250ms ease;
+  --animate-exitToLeft: exitToLeft 250ms ease;
+  --animate-exitToRight: exitToRight 250ms ease;
+
+  @keyframes slideDownAndFade {
+    from {
+      opacity: 0;
+      transform: translateY(-2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideLeftAndFade {
+    from {
+      opacity: 0;
+      transform: translateX(2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slideUpAndFade {
+    from {
+      opacity: 0;
+      transform: translateY(2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideRightAndFade {
+    from {
+      opacity: 0;
+      transform: translateX(-2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes enterFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes enterFromLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes exitToRight {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(200px);
+    }
+  }
+  
+  @keyframes exitToLeft {
+    from {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-200px);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: rotateX(-10deg) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: rotateX(0deg) scale(1);
+    }
+  }
+  
+  @keyframes scaleOut {
+    from {
+      opacity: 1;
+      transform: rotateX(0deg) scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: rotateX(-10deg) scale(0.95);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+@layer base {
+  html {
+      @apply scroll-smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+      @apply font-display;
+  }
+  
+  body {
+      @apply font-body;
+  }
+
+  p {
+      @apply max-w-prose;
+  }
+}

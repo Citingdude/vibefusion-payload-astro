@@ -49,6 +49,6 @@
     "postcss"
   ],
   "[astro]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "astro-build.astro-vscode"
   },
 }

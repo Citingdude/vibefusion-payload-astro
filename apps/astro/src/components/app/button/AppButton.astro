@@ -1,0 +1,58 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+
+type AnchorAttributes = Omit<HTMLAttributes<'a'>, 'href' | 'target' | 'rel'>
+type ButtonAttributes = Omit<HTMLAttributes<'button'>, 'type'>
+
+type ButtonColor = 'purple' | 'white' | 'transparent' | 'transparentWhite'
+type ButtonSize = 'sm' | 'md' | 'lg'
+
+interface Props extends AnchorAttributes, ButtonAttributes {
+  color?: ButtonColor
+  size?: ButtonSize
+  href?: string | URL
+  target?: '_blank' | '_parent' | '_self' | '_top'
+  rel?: string
+  type?: 'button' | 'submit' | 'reset'
+}
+
+const {
+  color = 'purple',
+  size = 'md',
+  href,
+  target,
+  rel,
+  type = 'button',
+  class: className,
+  ...attributes
+} = Astro.props
+
+const buttonClasses = [
+  'w-full rounded-br-xl rounded-tl-xl text-center font-display font-bold transition hover:-translate-y-1 hover:shadow-xl sm:w-fit',
+  {
+    sm: 'border px-4 py-2 text-base',
+    md: 'border-2 px-5 py-3 text-lg',
+    lg: 'border-2 px-6 py-4 text-xl',
+  }[size],
+  {
+    purple: 'border-accent bg-accent text-light-main',
+    white: 'border-light-main bg-light-alt text-accent hover:border-accent',
+    transparent: 'border-accent',
+    transparentWhite: 'border-accent text-light-main',
+  }[color],
+]
+---
+
+{
+  href
+    ? (
+        <a href={href} target={target} rel={rel} class:list={[buttonClasses, className]} {...attributes}>
+          <slot />
+        </a>
+      )
+    : (
+      <button type={type} class:list={[buttonClasses, className]} {...attributes}>
+        <slot />
+      </button>
+    )
+}
