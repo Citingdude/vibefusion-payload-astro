@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Opt in same-origin document navigations to the browser's default cross-fade. */
 @view-transition {
@@ -11,8 +11,8 @@
 }
 
 @theme {
-  --font-display: "Alegreya", "serif";
-  --font-body: "Alegreya Sans", "sans-serif";
+  --font-display: 'Alegreya', 'serif';
+  --font-body: 'Alegreya Sans', 'sans-serif';
 
   /* Brand: preserve the logo’s exact purple */
   --color-brand: #66c;
@@ -38,13 +38,15 @@
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
 
-  --shadow-card: 0 1px 2px rgb(30 30 43 / 6%),
-                 0 8px 24px rgb(30 30 43 / 8%);
+  --shadow-card: 0 1px 2px rgb(30 30 43 / 6%), 0 8px 24px rgb(30 30 43 / 8%);
 
-  --animate-slideDownAndFade: slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-slideLeftAndFade: slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slideDownAndFade: slideDownAndFade 400ms
+    cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slideLeftAndFade: slideLeftAndFade 400ms
+    cubic-bezier(0.16, 1, 0.3, 1);
   --animate-slideUpAndFade: slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-slideRightAndFade: slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slideRightAndFade: slideRightAndFade 400ms
+    cubic-bezier(0.16, 1, 0.3, 1);
   --animate-scaleIn: scaleIn 200ms ease;
   --animate-scaleOut: scaleOut 200ms ease;
   --animate-fadeIn: fadeIn 200ms ease;
@@ -75,7 +77,7 @@
       transform: translateX(0);
     }
   }
-  
+
   @keyframes slideUpAndFade {
     from {
       opacity: 0;
@@ -86,7 +88,7 @@
       transform: translateY(0);
     }
   }
-  
+
   @keyframes slideRightAndFade {
     from {
       opacity: 0;
@@ -97,7 +99,7 @@
       transform: translateX(0);
     }
   }
-  
+
   @keyframes enterFromRight {
     from {
       opacity: 0;
@@ -108,7 +110,7 @@
       transform: translateX(0);
     }
   }
-  
+
   @keyframes enterFromLeft {
     from {
       opacity: 0;
@@ -119,7 +121,7 @@
       transform: translateX(0);
     }
   }
-  
+
   @keyframes exitToRight {
     from {
       opacity: 1;
@@ -130,7 +132,7 @@
       transform: translateX(200px);
     }
   }
-  
+
   @keyframes exitToLeft {
     from {
       opacity: 1;
@@ -141,7 +143,7 @@
       transform: translateX(-200px);
     }
   }
-  
+
   @keyframes scaleIn {
     from {
       opacity: 0;
@@ -152,7 +154,7 @@
       transform: rotateX(0deg) scale(1);
     }
   }
-  
+
   @keyframes scaleOut {
     from {
       opacity: 1;
@@ -163,7 +165,7 @@
       transform: rotateX(-10deg) scale(0.95);
     }
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -172,7 +174,7 @@
       opacity: 1;
     }
   }
-  
+
   @keyframes fadeOut {
     from {
       opacity: 1;
@@ -185,7 +187,7 @@
 
 @layer base {
   html {
-      @apply scroll-smooth;
+    @apply scroll-smooth;
   }
 
   h1,
@@ -194,14 +196,14 @@
   h4,
   h5,
   h6 {
-      @apply font-display;
+    @apply font-display;
   }
-  
+
   body {
-      @apply font-body;
+    @apply font-body;
   }
 
   p {
-      @apply max-w-prose;
+    @apply max-w-prose;
   }
 }

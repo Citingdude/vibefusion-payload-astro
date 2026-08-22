@@ -14,14 +14,26 @@ const { totalDocs: mediaCount, docs } = await payload.find({
   <section>
     <div class="container">
       <h1 class="text-2xl">Vibefusion</h1>
-      <p>{mediaCount} media {mediaCount === 1 ? 'item' : 'items'} in Payload.</p>
+      <p>
+        {mediaCount} media {mediaCount === 1 ? 'item' : 'items'} in Payload.
+      </p>
 
-      <img src="" alt="">
+      <img
+        src=""
+        alt=""
+      />
 
-      {docs.map(item => (
-        <p>{item.alt}</p>
-        <img class="size-8" src={item.url} />
-      ))}
+      {
+        docs.map((item) => (
+          <>
+            <p>{item.alt}</p>
+            <img
+              class="size-8"
+              src={item.url}
+            />
+          </>
+        ))
+      }
     </div>
   </section>
 </Layout>

@@ -48,15 +48,23 @@ const buttonClasses = [
 ---
 
 {
-  href
-    ? (
-        <a href={href} target={target} rel={rel} class:list={[buttonClasses, className]} {...attributes}>
-          <slot />
-        </a>
-      )
-    : (
-      <button type={type} class:list={[buttonClasses, className]} {...attributes}>
-        <slot />
-      </button>
-    )
+  href ? (
+    <a
+      href={href}
+      target={target}
+      rel={rel}
+      class:list={[buttonClasses, className]}
+      {...attributes}
+    >
+      <slot />
+    </a>
+  ) : (
+    <button
+      type={type}
+      class:list={[buttonClasses, className]}
+      {...attributes}
+    >
+      <slot />
+    </button>
+  )
 }
