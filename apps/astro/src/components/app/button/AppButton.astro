@@ -32,7 +32,7 @@ const {
 } = Astro.props
 
 const buttonClasses = [
-  'inline-flex w-full items-center justify-center rounded-br-md rounded-tl-md font-display font-bold duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 sm:w-fit transition-all',
+  'inline-flex w-full items-center justify-center rounded-br-md rounded-tl-md font-display font-bold duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 sm:w-fit transition-all active:scale-95 ease-out',
   {
     sm: 'px-4 py-2 text-sm',
     md: 'px-5 py-3 text-base',
@@ -40,7 +40,7 @@ const buttonClasses = [
   }[size],
   {
     primary: 'bg-brand text-white hover:bg-brand-hover active:bg-brand-active',
-    secondary: 'border border-border bg-surface text-foreground hover:border-brand hover:bg-brand-subtle',
+    secondary: 'border border-brand bg-surface text-foreground hover:border-brand hover:bg-brand-subtle',
     outline: 'border border-brand text-brand hover:bg-brand-subtle active:bg-brand-subtle',
     ghost: 'text-brand hover:bg-brand-subtle active:bg-brand-subtle',
   }[variant],
