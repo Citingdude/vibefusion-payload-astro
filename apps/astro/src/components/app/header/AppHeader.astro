@@ -1,13 +1,59 @@
 ---
-import AppHeaderActions from '@/components/app/header/AppHeaderActions.astro'
 import AppLogo from '@/components/app/logo/AppLogo.astro'
 import AppNav from '@/components/app/nav/AppNav.astro'
+import IconMenu from '@/components/icons/IconMenu.astro'
 ---
 
-<header class="border-b border-border-default bg-background py-2">
-  <div class="container flex justify-between items-center">
+<header
+  class="border-b border-border-default bg-background py-2"
+  data-header
+>
+  <div class="container flex items-center justify-between">
     <AppLogo />
-    <AppNav />
-    <AppHeaderActions />
+
+    <div class="hidden items-center gap-8 lg:flex">
+      <AppNav />
+    </div>
+
+    <button
+      class="inline-flex size-11 items-center justify-center rounded-md text-text-default transition-colors hover:bg-primary-subtle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus lg:hidden"
+      type="button"
+      aria-expanded="false"
+      aria-controls="mobile-navigation"
+      aria-label="Open navigation menu"
+      data-menu-toggle
+    >
+      <IconMenu class="size-6" />
+    </button>
+  </div>
+
+  <div
+    id="mobile-navigation"
+    class="hidden border-t border-border-default lg:hidden"
+    data-mobile-menu
+  >
+    <div class="container py-5">
+      <AppNav />
+    </div>
   </div>
 </header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]')
+  const toggle = header?.querySelector<HTMLButtonElement>('[data-menu-toggle]')
+  const menu = header?.querySelector<HTMLElement>('[data-mobile-menu]')
+
+  const closeMenu = () => {
+    menu?.classList.add('hidden')
+    toggle?.setAttribute('aria-expanded', 'false')
+    toggle?.setAttribute('aria-label', 'Open navigation menu')
+  }
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('hidden') === false
+    toggle.setAttribute('aria-expanded', String(isOpen))
+    toggle.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu')
+  })
+
+  menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu))
+</script>
