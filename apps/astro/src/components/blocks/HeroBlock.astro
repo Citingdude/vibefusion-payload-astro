@@ -1,0 +1,112 @@
+---
+import AppButton from '@/components/app/button/AppButton.astro'
+import AppVibeMark from '@/components/app/icon/AppVibeMark.astro'
+import IconArrowRight from '@/components/icons/IconArrowRight.astro'
+
+interface Props {
+  eyebrow?: string
+  title?: string
+  description?: string
+  primaryAction?: { label: string; href: string }
+  secondaryAction?: { label: string; href: string }
+}
+
+const {
+  eyebrow = 'Digitale ervaringen met karakter',
+  title = 'Websites die voelen als jouw merk.',
+  description = 'Van eerste idee tot een digitale ervaring die mensen bijblijft. We combineren heldere strategie, sterk design en slimme techniek.',
+  primaryAction = { label: 'Start een project', href: '/contact' },
+  secondaryAction = { label: 'Bekijk ons werk', href: '/cases' },
+} = Astro.props
+---
+
+<section class="relative isolate overflow-hidden bg-background py-16 sm:py-24 lg:py-32">
+  <div
+    class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-[radial-gradient(circle_at_78%_28%,var(--ui-brand-100),transparent_27rem)]"
+  >
+  </div>
+  <div
+    class="pointer-events-none absolute right-[6%] top-16 -z-10 size-72 rounded-full border border-brand-200/70 sm:size-96 bg-brand/5"
+  >
+  </div>
+
+  <div class="container grid items-center gap-14 lg:grid-cols-[1fr_0.86fr] lg:gap-20">
+    <div class="max-w-2xl">
+      <p class="mb-5 flex items-center gap-3 text-sm font-bold tracking-wide text-default uppercase">
+        <AppVibeMark class="w-8" />
+        {eyebrow}
+      </p>
+      <h1 class="max-w-xl text-5xl leading-none font-bold text-text-highlighted sm:text-6xl lg:text-7xl">
+        {title}
+      </h1>
+      <p class="mt-6 text-xl leading-relaxed text-text-muted sm:text-2xl">
+        {description}
+      </p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <AppButton
+          href={primaryAction.href}
+          size="lg"
+        >
+          {primaryAction.label}
+          <IconArrowRight />
+        </AppButton>
+        <AppButton
+          href={secondaryAction.href}
+          size="lg"
+          variant="ghost"
+        >
+          {secondaryAction.label}
+        </AppButton>
+      </div>
+
+      <p class="mt-8 flex items-center gap-2 text-base text-text-muted">
+        <span
+          class="flex -space-x-2"
+          aria-hidden="true"
+        >
+          <span class="size-7 rounded-full border-2 border-default bg-brand-300"></span>
+          <span class="size-7 rounded-full border-2 border-default bg-brand-500"></span>
+          <span class="size-7 rounded-full border-2 border-default bg-neutral-700"></span>
+        </span>
+        Een klein team voor grote ideeën.
+      </p>
+    </div>
+
+    <div class="relative mx-auto w-full max-w-lg lg:max-w-none">
+      <div class="absolute -inset-5 -z-10 rotate-3 rounded-3xl bg-brand-200/60"></div>
+      <div class="overflow-hidden rounded-2xl border border-border-default bg-elevated p-4 shadow-xl sm:p-6">
+        <div class="flex items-center justify-between border-b border-border-default pb-4">
+          <span class="font-display text-lg font-bold text-text-highlighted">Vibefusion</span>
+          <span class="rounded-full bg-success-subtle px-3 py-1 text-xs font-bold text-success">Beschikbaar</span>
+        </div>
+        <div class="mt-6 rounded-xl bg-brand-950 p-6 text-primary-foreground sm:p-8">
+          <p class="text-sm font-bold tracking-widest text-brand-300 uppercase">Gemaakt om te groeien</p>
+          <p class="mt-10 max-w-xs font-display text-3xl leading-tight font-bold sm:text-4xl">
+            Een online thuisbasis waar je trots op bent.
+          </p>
+          <div
+            class="mt-8 flex items-end gap-2"
+            aria-hidden="true"
+          >
+            <span class="h-8 flex-1 rounded-t-sm bg-brand-300"></span>
+            <span class="h-14 flex-1 rounded-t-sm bg-brand-400"></span>
+            <span class="h-10 flex-1 rounded-t-sm bg-brand-500"></span>
+            <span class="h-20 flex-1 rounded-t-sm bg-brand-200"></span>
+            <span class="h-16 flex-1 rounded-t-sm bg-brand-400"></span>
+          </div>
+        </div>
+        <div class="mt-4 grid grid-cols-2 gap-4">
+          <div class="rounded-xl bg-accented p-4">
+            <p class="text-sm text-text-muted">Van idee tot live</p>
+            <p class="mt-1 font-display text-2xl font-bold text-text-highlighted">Samen</p>
+          </div>
+          <div class="rounded-xl bg-primary p-4 text-primary-foreground">
+            <p class="text-sm text-brand-100">Focus op</p>
+            <p class="mt-1 font-display text-2xl font-bold">Impact</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

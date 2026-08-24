@@ -141,6 +141,9 @@
 }
 
 @theme {
+  /* Remove Tailwind's built-in palette; expose only project design tokens. */
+  --color-*: initial;
+
   --font-display: 'Alegreya', 'serif';
   --font-body: 'Alegreya Sans', 'sans-serif';
 
@@ -201,7 +204,7 @@
   --color-info-foreground: var(--ui-info-foreground);
 
   /* Semantic neutral utilities, following Nuxt UI's naming. */
-  --color-default: var(--ui-bg);
+  --color-default: var(--ui-text);
   --color-elevated: var(--ui-bg-elevated);
   --color-accented: var(--ui-bg-accented);
   --color-inverted: var(--ui-bg-inverted);
@@ -447,7 +450,7 @@
   }
 
   body {
-    @apply bg-default font-body text-text-default antialiased;
+    @apply bg-background font-body text-text-default antialiased;
   }
 
   p {
