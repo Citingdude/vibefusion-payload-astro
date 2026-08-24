@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import IconVibeMark from '@/components/icons/IconVibeMark.astro'
+
+interface Props extends HTMLAttributes<'p'> {
+  label: string
+}
+
+const { label, class: className, ...attributes } = Astro.props
+---
+
+<p
+  class:list={['flex items-center gap-3 text-sm font-bold tracking-wide text-default uppercase', className]}
+  {...attributes}
+>
+  <IconVibeMark class="w-8" />
+  {label}
+</p>
