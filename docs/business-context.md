@@ -26,7 +26,7 @@ The homepage should follow this decision journey:
 
 1. **Hero:** establish the promise and invite visitors to start a project or view the work.
 2. **Services / approach:** immediately explain how Vibefusion delivers that promise through strategy, design, and technology.
-3. **Work / cases:** demonstrate the promise with proof and outcomes.
+3. **Work / cases:** demonstrate the promise with proof and outcomes. Until verified client material is available, present this as project types or a visual work showcase rather than client-specific claims.
 4. **Process:** show what collaboration looks like and reduce uncertainty.
 5. **About / trust:** introduce the people and working values behind the studio.
 6. **Contact CTA:** provide a clear, low-friction next step.

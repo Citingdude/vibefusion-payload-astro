@@ -1,0 +1,93 @@
+---
+import AppButton from '@/components/app/button/AppButton.astro'
+import IconArrowRight from '@/components/icons/IconArrowRight.astro'
+
+interface Project {
+  category: string
+  title: string
+  description: string
+  palette: 'violet' | 'ink' | 'lilac'
+}
+
+interface Props {
+  projects?: Project[]
+}
+
+const {
+  projects = [
+    {
+      category: 'Merkwebsite',
+      title: 'Een verhaal dat direct binnenkomt.',
+      description: 'Van eerste indruk tot een ervaring die helemaal klopt.',
+      palette: 'violet',
+    },
+    {
+      category: 'Digitaal platform',
+      title: 'Complexiteit helder gemaakt.',
+      description: 'Slimme structuur en een interface die vanzelf spreekt.',
+      palette: 'ink',
+    },
+    {
+      category: 'Nieuwe identiteit',
+      title: 'Herkenbaar in elk detail.',
+      description: 'Een uitgesproken basis voor merken die vooruit willen.',
+      palette: 'lilac',
+    },
+  ],
+} = Astro.props
+
+const paletteClasses = {
+  violet: 'bg-primary text-primary-foreground',
+  ink: 'bg-neutral-900 text-primary-foreground',
+  lilac: 'bg-brand-200 text-text-highlighted',
+}
+---
+
+<section class="bg-background py-16 sm:py-24 lg:py-28">
+  <div class="container">
+    <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+      <div class="max-w-2xl">
+        <p class="text-sm font-bold tracking-widest text-primary uppercase">Geselecteerd werk</p>
+        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-text-highlighted sm:text-5xl">
+          Ideeën die een eigen plek innemen.
+        </h2>
+      </div>
+      <AppButton
+        href="/cases"
+        variant="ghost"
+      >
+        Bekijk alle cases
+        <IconArrowRight slot="icon-right" />
+      </AppButton>
+    </div>
+
+    <div class="mt-10 grid gap-5 lg:grid-cols-3">
+      {
+        projects.map((project, index) => (
+          <article class:list={['group overflow-hidden rounded-2xl', index === 0 && 'lg:col-span-2']}>
+            <div
+              class:list={[
+                'relative flex min-h-80 flex-col justify-between overflow-hidden p-6 sm:p-8',
+                paletteClasses[project.palette],
+              ]}
+            >
+              <div
+                class="pointer-events-none absolute -right-10 -bottom-16 size-56 rounded-full border-[1.25rem] border-current opacity-15 transition-transform duration-500 group-hover:scale-110"
+                aria-hidden="true"
+              />
+              <div
+                class="pointer-events-none absolute top-10 right-10 h-16 w-16 rotate-12 rounded-xl border border-current opacity-20"
+                aria-hidden="true"
+              />
+              <span class="relative text-sm font-bold tracking-widest uppercase opacity-75">{project.category}</span>
+              <div class="relative mt-16 max-w-sm">
+                <h3 class="font-display text-3xl leading-tight font-bold sm:text-4xl">{project.title}</h3>
+                <p class="mt-3 text-lg leading-relaxed opacity-80">{project.description}</p>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
