@@ -4,7 +4,7 @@ import type { HTMLAttributes } from 'astro/types'
 type AnchorAttributes = Omit<HTMLAttributes<'a'>, 'href' | 'target' | 'rel'>
 type ButtonAttributes = Omit<HTMLAttributes<'button'>, 'type'>
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost'
+type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'outline' | 'ghost'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface Props extends AnchorAttributes, ButtonAttributes {
@@ -44,7 +44,8 @@ const buttonClasses = [
   }[size],
   {
     primary: 'bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active',
-    secondary: 'border border-border-default  border-primary bg-primary/10 hover:bg-primary/5',
+    secondary: 'border border-border-default border-primary bg-primary/10 text-default hover:bg-primary/5',
+    tertiary: 'bg-neutral-950 text-neutral-0 hover:bg-neutral-900 active:bg-neutral-800',
     outline: 'border border-primary text-primary hover:bg-primary-subtle active:bg-primary-muted',
     ghost: 'text-primary hover:bg-primary-subtle active:bg-primary-muted',
   }[variant],

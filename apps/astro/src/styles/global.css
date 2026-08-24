@@ -10,6 +10,51 @@
   padding-inline: 2rem;
 }
 
+/* Semantic color utilities use distinct text and background roles. */
+.text-dimmed {
+  color: var(--ui-text-dimmed);
+}
+
+.text-muted {
+  color: var(--ui-text-muted);
+}
+
+.text-toned {
+  color: var(--ui-text-toned);
+}
+
+.text-default {
+  color: var(--ui-text);
+}
+
+.text-highlighted {
+  color: var(--ui-text-highlighted);
+}
+
+.text-inverted {
+  color: var(--ui-text-inverted);
+}
+
+.bg-default {
+  background-color: var(--ui-bg);
+}
+
+.bg-muted {
+  background-color: var(--ui-bg-muted);
+}
+
+.bg-elevated {
+  background-color: var(--ui-bg-elevated);
+}
+
+.bg-accented {
+  background-color: var(--ui-bg-accented);
+}
+
+.bg-inverted {
+  background-color: var(--ui-bg-inverted);
+}
+
 /*
  * Design tokens
  *
@@ -104,11 +149,13 @@
 
   /* Neutral UI roles: these are the default choice for all components. */
   --ui-bg: var(--ui-neutral-25);
+  --ui-bg-muted: var(--ui-neutral-50);
   --ui-bg-elevated: var(--ui-neutral-0);
   --ui-bg-accented: var(--ui-neutral-100);
   --ui-bg-inverted: var(--ui-neutral-900);
   --ui-text: var(--ui-neutral-900);
   --ui-text-highlighted: var(--ui-neutral-950);
+  --ui-text-toned: var(--ui-neutral-700);
   --ui-text-muted: var(--ui-neutral-600);
   --ui-text-dimmed: var(--ui-neutral-500);
   --ui-text-inverted: var(--ui-neutral-0);
@@ -126,11 +173,13 @@
   color-scheme: dark;
 
   --ui-bg: var(--ui-neutral-950);
+  --ui-bg-muted: var(--ui-neutral-900);
   --ui-bg-elevated: var(--ui-neutral-900);
   --ui-bg-accented: var(--ui-neutral-800);
   --ui-bg-inverted: var(--ui-neutral-0);
   --ui-text: var(--ui-neutral-50);
   --ui-text-highlighted: var(--ui-neutral-0);
+  --ui-text-toned: var(--ui-neutral-300);
   --ui-text-muted: var(--ui-neutral-400);
   --ui-text-dimmed: var(--ui-neutral-500);
   --ui-text-inverted: var(--ui-neutral-950);
@@ -204,12 +253,14 @@
   --color-info-foreground: var(--ui-info-foreground);
 
   /* Semantic neutral utilities, following Nuxt UI's naming. */
-  --color-default: var(--ui-text);
+  --color-default: var(--ui-bg);
+  --color-muted: var(--ui-bg-muted);
   --color-elevated: var(--ui-bg-elevated);
   --color-accented: var(--ui-bg-accented);
   --color-inverted: var(--ui-bg-inverted);
   --color-text-default: var(--ui-text);
   --color-text-highlighted: var(--ui-text-highlighted);
+  --color-text-toned: var(--ui-text-toned);
   --color-text-muted: var(--ui-text-muted);
   --color-text-dimmed: var(--ui-text-dimmed);
   --color-text-inverted: var(--ui-text-inverted);
@@ -450,7 +501,7 @@
   }
 
   body {
-    @apply bg-background font-body text-text-default antialiased;
+    @apply bg-background font-body text-default antialiased;
   }
 
   p {
