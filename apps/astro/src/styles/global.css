@@ -11,47 +11,47 @@
 }
 
 /* Semantic color utilities use distinct text and background roles. */
-.text-dimmed {
+@utility text-dimmed {
   color: var(--ui-text-dimmed);
 }
 
-.text-muted {
+@utility text-muted {
   color: var(--ui-text-muted);
 }
 
-.text-toned {
+@utility text-toned {
   color: var(--ui-text-toned);
 }
 
-.text-default {
+@utility text-default {
   color: var(--ui-text);
 }
 
-.text-highlighted {
+@utility text-highlighted {
   color: var(--ui-text-highlighted);
 }
 
-.text-inverted {
+@utility text-inverted {
   color: var(--ui-text-inverted);
 }
 
-.bg-default {
+@utility bg-default {
   background-color: var(--ui-bg);
 }
 
-.bg-muted {
+@utility bg-muted {
   background-color: var(--ui-bg-muted);
 }
 
-.bg-elevated {
+@utility bg-elevated {
   background-color: var(--ui-bg-elevated);
 }
 
-.bg-accented {
+@utility bg-accented {
   background-color: var(--ui-bg-accented);
 }
 
-.bg-inverted {
+@utility bg-inverted {
   background-color: var(--ui-bg-inverted);
 }
 
@@ -253,11 +253,6 @@
   --color-info-foreground: var(--ui-info-foreground);
 
   /* Semantic neutral utilities, following Nuxt UI's naming. */
-  --color-default: var(--ui-bg);
-  --color-muted: var(--ui-bg-muted);
-  --color-elevated: var(--ui-bg-elevated);
-  --color-accented: var(--ui-bg-accented);
-  --color-inverted: var(--ui-bg-inverted);
   --color-text-default: var(--ui-text);
   --color-text-highlighted: var(--ui-text-highlighted);
   --color-text-toned: var(--ui-text-toned);
