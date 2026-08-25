@@ -1,0 +1,102 @@
+---
+import AppButton from '@/components/app/button/AppButton.astro'
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+import IconArrowRight from '@/components/icons/IconArrowRight.astro'
+---
+
+<section class="relative isolate overflow-hidden bg-background py-16 sm:py-24 lg:py-30">
+  <div
+    class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_82%_20%,var(--ui-brand-100),transparent_30rem)]"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container grid items-center gap-14 lg:grid-cols-[1fr_0.92fr] lg:gap-20">
+    <div class="max-w-2xl">
+      <AppEyebrow
+        label="Websites voor bedrijven met ambitie"
+        class="mb-5"
+      />
+      <h1 class="font-display text-5xl leading-[0.95] font-bold text-highlighted sm:text-6xl lg:text-7xl">
+        Jouw sterkste verhaal, <span class="text-primary">online voelbaar.</span>
+      </h1>
+      <p class="mt-7 max-w-xl text-xl leading-relaxed text-toned sm:text-2xl">
+        We bouwen een website die laat zien wie je bent, vertrouwen wekt en bezoekers helpt om de volgende stap te
+        zetten.
+      </p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <AppButton
+          href="/contact"
+          size="lg"
+        >
+          Bespreek jouw website
+          <IconArrowRight slot="icon-right" />
+        </AppButton>
+        <AppButton
+          href="#aanpak"
+          size="lg"
+          variant="secondary"
+        >
+          Bekijk onze aanpak
+        </AppButton>
+      </div>
+
+      <ul
+        class="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-base text-muted"
+        aria-label="Belangrijke eigenschappen"
+      >
+        <li class="flex items-center gap-2">
+          <span class="size-1.5 rounded-full bg-primary"></span>Snel en toegankelijk
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="size-1.5 rounded-full bg-primary"></span>Makkelijk te beheren
+        </li>
+        <li class="flex items-center gap-2">
+          <span class="size-1.5 rounded-full bg-primary"></span>Klaar om te groeien
+        </li>
+      </ul>
+    </div>
+
+    <div
+      class="relative mx-auto w-full max-w-xl"
+      aria-hidden="true"
+    >
+      <div class="absolute -inset-4 -z-10 -rotate-2 rounded-3xl bg-brand-200/60 sm:-inset-6"></div>
+      <div class="overflow-hidden rounded-2xl border border-border-default bg-elevated shadow-xl">
+        <div class="flex items-center gap-2 border-b border-border-default px-5 py-4">
+          <span class="size-2.5 rounded-full bg-brand-300"></span>
+          <span class="size-2.5 rounded-full bg-brand-400"></span>
+          <span class="size-2.5 rounded-full bg-primary"></span>
+          <span class="ml-3 h-7 flex-1 rounded-full bg-accented"></span>
+        </div>
+        <div class="grid min-h-96 grid-rows-[1fr_auto] bg-brand-950 p-6 text-primary-foreground sm:p-9">
+          <div>
+            <div class="flex items-center justify-between">
+              <span class="font-display text-xl font-bold">Jouw merk</span>
+              <div class="flex gap-2">
+                <span class="h-1.5 w-8 rounded-full bg-brand-300"></span>
+                <span class="h-1.5 w-5 rounded-full bg-brand-500"></span>
+              </div>
+            </div>
+            <p class="mt-16 max-w-sm font-display text-4xl leading-none font-bold sm:text-5xl">
+              Een eerste indruk die blijft hangen.
+            </p>
+            <div class="mt-7 h-10 w-36 rounded-br-md rounded-tl-md bg-primary"></div>
+          </div>
+          <div class="mt-12 grid grid-cols-3 gap-3">
+            <span class="h-16 rounded-lg bg-brand-900"></span>
+            <span class="h-16 rounded-lg bg-brand-800"></span>
+            <span class="h-16 rounded-lg bg-brand-700"></span>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute -right-3 -bottom-6 rounded-xl border border-brand-300 bg-brand-100 px-5 py-4 shadow-lg sm:-right-8"
+      >
+        <p class="text-sm text-muted">Van bezoeker naar</p>
+        <p class="font-display text-xl font-bold text-highlighted">vertrouwen</p>
+      </div>
+    </div>
+  </div>
+</section>

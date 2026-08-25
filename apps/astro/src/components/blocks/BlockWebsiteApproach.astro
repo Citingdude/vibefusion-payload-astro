@@ -1,0 +1,75 @@
+---
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+
+const pillars = [
+  {
+    number: '01',
+    title: 'Een scherpe basis',
+    description: 'We maken samen helder wat je wilt bereiken, wie je wilt bereiken en welk verhaal daarbij hoort.',
+    details: ['Doelen en richting', 'Verhaal en inhoud', 'Structuur en gebruikersroutes'],
+  },
+  {
+    number: '02',
+    title: 'Design met karakter',
+    description: 'We vertalen je merk naar een eigen, gebruiksvriendelijke website die op ieder scherm overtuigt.',
+    details: ['Visuele richting', 'Interface en interactie', 'Mobiel ontwerp'],
+  },
+  {
+    number: '03',
+    title: 'Techniek zonder gedoe',
+    description: 'We bouwen een snelle, toegankelijke basis die prettig te beheren is en mee kan groeien.',
+    details: ['Slim contentbeheer', 'Performance en toegankelijkheid', 'Degelijke technische basis'],
+  },
+]
+---
+
+<section
+  id="aanpak"
+  class="scroll-mt-8 bg-background py-16 sm:py-24 lg:py-28"
+>
+  <div class="container">
+    <div class="max-w-3xl">
+      <AppEyebrow label="Eén geheel, van idee tot livegang" />
+      <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl lg:text-6xl">
+        Strategie, design en techniek aan dezelfde tafel.
+      </h2>
+      <p class="mt-5 max-w-2xl text-xl leading-relaxed text-toned">
+        Geen losse schakels of overdrachten. We nemen elke beslissing vanuit hetzelfde doel: een website die klopt voor
+        je merk én je bezoekers.
+      </p>
+    </div>
+
+    <ol class="mt-12 grid gap-5 lg:grid-cols-3">
+      {
+        pillars.map((pillar, index) => (
+          <li
+            class:list={[
+              'relative overflow-hidden rounded-2xl border p-6 sm:p-8',
+              index === 1
+                ? 'border-brand-700 bg-primary text-primary-foreground'
+                : 'border-border-default bg-elevated text-default',
+            ]}
+          >
+            <span class:list={['font-display text-lg font-bold', index === 1 ? 'text-brand-200' : 'text-primary']}>
+              {pillar.number}
+            </span>
+            <h3 class="mt-10 font-display text-3xl leading-tight font-bold">{pillar.title}</h3>
+            <p class:list={['mt-4 text-lg leading-relaxed', index === 1 ? 'text-brand-100' : 'text-muted']}>
+              {pillar.description}
+            </p>
+            <ul
+              class:list={['mt-7 space-y-3 border-t pt-6', index === 1 ? 'border-brand-500' : 'border-border-default']}
+            >
+              {pillar.details.map((detail) => (
+                <li class="flex items-center gap-3">
+                  <span class:list={['size-1.5 rounded-full', index === 1 ? 'bg-brand-200' : 'bg-primary']} />
+                  <span>{detail}</span>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>
