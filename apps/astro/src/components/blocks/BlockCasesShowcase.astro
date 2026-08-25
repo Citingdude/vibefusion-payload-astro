@@ -1,0 +1,83 @@
+---
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+
+const cases = [
+  {
+    type: 'Merkwebsite',
+    title: 'Een merkverhaal dat meteen landt.',
+    description:
+      'Voor organisaties die hun verhaal scherper willen vertellen en online herkenbaar voor de dag willen komen.',
+    result: 'Strategie · identiteit · website',
+    theme: 'brand',
+  },
+  {
+    type: 'Nieuwe website',
+    title: 'Van versnipperde informatie naar rust.',
+    description: 'Voor bedrijven die een heldere structuur nodig hebben waarin bezoekers moeiteloos hun weg vinden.',
+    result: 'Structuur · content · gebruiksgemak',
+    theme: 'dark',
+  },
+  {
+    type: 'Digitale vernieuwing',
+    title: 'Een stevige basis voor de volgende stap.',
+    description: 'Voor een bestaande website die niet meer past bij de uitstraling, ambities of dagelijkse praktijk.',
+    result: 'Herpositionering · design · techniek',
+    theme: 'soft',
+  },
+]
+
+const themeClasses = {
+  brand: 'bg-primary text-primary-foreground',
+  dark: 'bg-neutral-950 text-neutral-0',
+  soft: 'bg-brand-100 text-highlighted',
+}
+---
+
+<section
+  id="werk"
+  class="scroll-mt-8 bg-background py-16 sm:py-24 lg:py-28"
+>
+  <div class="container">
+    <div class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+      <div class="max-w-md">
+        <AppEyebrow label="Werk dat we graag maken" />
+        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+          Verschillende vragen. Dezelfde aandacht.
+        </h2>
+        <p class="mt-5 text-xl leading-relaxed text-toned">
+          Tot we echte cases met toestemming kunnen delen, laten deze projecttypes zien waar strategie, design en
+          techniek samen het verschil maken.
+        </p>
+      </div>
+
+      <div class="grid gap-5">
+        {
+          cases.map((item, index) => (
+            <article
+              class:list={[
+                'group relative isolate min-h-80 overflow-hidden rounded-2xl p-6 sm:p-8',
+                themeClasses[item.theme as keyof typeof themeClasses],
+              ]}
+            >
+              <div
+                class="pointer-events-none absolute -right-14 -bottom-24 -z-10 size-64 rounded-full border-[1.5rem] border-current opacity-15 transition-transform duration-500 group-hover:scale-110"
+                aria-hidden="true"
+              />
+              <div class="flex h-full min-h-64 flex-col justify-between">
+                <div class="flex items-start justify-between gap-6">
+                  <span class="text-sm font-bold tracking-widest uppercase opacity-70">{item.type}</span>
+                  <span class="font-display text-xl font-bold opacity-50">0{index + 1}</span>
+                </div>
+                <div class="mt-16 max-w-xl">
+                  <h3 class="font-display text-3xl leading-tight font-bold sm:text-4xl">{item.title}</h3>
+                  <p class="mt-3 max-w-lg text-lg leading-relaxed opacity-80">{item.description}</p>
+                  <p class="mt-5 text-sm font-bold tracking-wide uppercase opacity-70">{item.result}</p>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

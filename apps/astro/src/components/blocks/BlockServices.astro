@@ -1,0 +1,63 @@
+---
+import AppButton from '@/components/app/button/AppButton.astro'
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+import IconArrowRight from '@/components/icons/IconArrowRight.astro'
+
+const services = [
+  {
+    number: '01',
+    title: 'Heldere strategie',
+    description:
+      'We brengen je verhaal, doelen en ideale klant scherp in beeld. Zo krijgt elk ontwerp een duidelijke richting.',
+  },
+  {
+    number: '02',
+    title: 'Design met gevoel',
+    description:
+      'Een visuele identiteit en website die herkenbaar voelt, vertrouwen wekt en prettig werkt op elk scherm.',
+  },
+  {
+    number: '03',
+    title: 'Techniek die meebeweegt',
+    description: 'Snel, toegankelijk en klaar om te groeien — zonder dat jij hoeft te verdwalen in technische details.',
+  },
+]
+---
+
+<section class="border-y border-border-default bg-elevated py-16 sm:py-24 lg:py-28">
+  <div class="container">
+    <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <div class="max-w-md">
+        <AppEyebrow label="Van idee naar impact" />
+        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+          Alles wat je nodig hebt om online te kloppen.
+        </h2>
+        <p class="mt-5 text-xl text-toned">
+          Geen losse eindjes of onnodige lagen. We brengen strategie, design en techniek samen in één sterk geheel.
+        </p>
+        <AppButton
+          href="/websites"
+          variant="secondary"
+          class="mt-8"
+        >
+          Ontdek wat we maken
+          <IconArrowRight slot="icon-right" />
+        </AppButton>
+      </div>
+
+      <ol class="divide-y divide-border-default border-t border-border-default">
+        {
+          services.map((service) => (
+            <li class="grid gap-3 py-6 sm:grid-cols-[3.5rem_1fr] sm:gap-6 sm:py-7">
+              <span class="font-display text-xl font-bold text-primary">{service.number}</span>
+              <div>
+                <h3 class="font-display text-2xl font-bold text-highlighted sm:text-3xl">{service.title}</h3>
+                <p class="mt-2 max-w-xl text-lg leading-relaxed text-muted">{service.description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

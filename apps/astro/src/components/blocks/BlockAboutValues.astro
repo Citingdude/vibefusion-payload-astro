@@ -1,0 +1,39 @@
+---
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+
+const values = [
+  [
+    'Nieuwsgierig',
+    'We stellen vragen tot we begrijpen wat er echt nodig is, niet alleen wat er als eerste wordt gevraagd.',
+  ],
+  ['Eerlijk', 'We maken afwegingen zichtbaar, zeggen wat iets nodig heeft en houden het gesprek helder.'],
+  ['Betrokken', 'We behandelen je idee met aandacht en voelen ons verantwoordelijk voor de kwaliteit van het geheel.'],
+  ['Doordacht', 'Van eerste woord tot laatste interactie: iedere keuze moet ergens aan bijdragen.'],
+]
+---
+
+<section class="border-y border-border-default bg-elevated py-16 sm:py-24 lg:py-28">
+  <div class="container">
+    <div class="max-w-2xl">
+      <AppEyebrow label="Hoe we in het werk staan" />
+      <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+        Vakmanschap voelt menselijk.
+      </h2>
+    </div>
+    <div
+      class="mt-10 grid gap-px overflow-hidden rounded-2xl border border-border-default bg-border-default sm:grid-cols-2"
+    >
+      {
+        values.map(([title, description], index) => (
+          <article class="bg-background p-6 sm:p-8">
+            <div class="flex items-center justify-between gap-6">
+              <h3 class="font-display text-3xl font-bold text-highlighted">{title}</h3>
+              <span class="font-display text-lg font-bold text-primary">0{index + 1}</span>
+            </div>
+            <p class="mt-4 max-w-lg text-lg leading-relaxed text-muted">{description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

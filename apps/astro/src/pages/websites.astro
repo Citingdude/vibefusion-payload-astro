@@ -1,0 +1,24 @@
+---
+import BlockContactCta from '@/components/blocks/BlockContactCta.astro'
+import BlockWebsiteApproach from '@/components/blocks/BlockWebsiteApproach.astro'
+import BlockWebsiteHero from '@/components/blocks/BlockWebsiteHero.astro'
+import BlockWebsiteProcess from '@/components/blocks/BlockWebsiteProcess.astro'
+import BlockWebsiteValue from '@/components/blocks/BlockWebsiteValue.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout
+  title="Websites voor bedrijven — Vibefusion"
+  description="Vibefusion bouwt websites met karakter voor kleine en middelgrote bedrijven: helder van strategie tot design en techniek."
+>
+  <BlockWebsiteHero />
+  <BlockWebsiteValue />
+  <BlockWebsiteApproach />
+  <BlockWebsiteProcess />
+  <BlockContactCta
+    eyebrow="Een website die bij je past"
+    title="Klaar voor een website waar je trots op bent?"
+    description="Vertel ons waar je bedrijf staat en waar je naartoe wilt. Dan onderzoeken we samen wat je website nodig heeft om mee te bewegen."
+    action={{ label: 'Vertel ons over je project', href: '/contact' }}
+  />
+</Layout>

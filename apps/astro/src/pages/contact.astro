@@ -1,11 +1,25 @@
 ---
-import Layout from '@/layouts/Layout.astro';
+import BlockContactStart from '@/components/blocks/BlockContactStart.astro'
+import BlockPageHero from '@/components/blocks/BlockPageHero.astro'
+import BlockProjectPrinciples from '@/components/blocks/BlockProjectPrinciples.astro'
+import Layout from '@/layouts/Layout.astro'
 ---
 
-<Layout>
-  <section>
-    <div class="container">
-      <h1>Contact</h1>
-    </div>
-  </section>
+<Layout
+  title="Contact — start een project met Vibefusion"
+  description="Heb je een idee voor een nieuwe website of digitale ervaring? Vertel Vibefusion waar je naartoe wilt."
+>
+  <BlockPageHero
+    eyebrow="Contact"
+    title="Vertel ons waar je naartoe wilt."
+    description="Een nieuwe website, een merk dat niet meer past of gewoon een idee dat blijft terugkomen? We denken graag met je mee over de slimste volgende stap."
+    primaryAction={{ label: 'Bereid je project voor', href: '#project' }}
+    variant="brand"
+  />
+  <BlockContactStart />
+  <BlockProjectPrinciples
+    eyebrow="Wat je van ons mag verwachten"
+    title="Een eerlijk gesprek, zonder verkooppraat."
+    description="We luisteren naar je vraag, delen onze eerste kijk en maken duidelijk wat een passende volgende stap kan zijn. Ook als dat iets anders is dan je vooraf dacht."
+  />
 </Layout>

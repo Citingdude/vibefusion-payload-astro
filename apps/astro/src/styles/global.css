@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Opt in same-origin document navigations to the browser's default cross-fade. */
 @view-transition {
@@ -10,41 +10,339 @@
   padding-inline: 2rem;
 }
 
+/* Semantic color utilities use distinct text and background roles. */
+@utility text-dimmed {
+  color: var(--ui-text-dimmed);
+}
+
+@utility text-muted {
+  color: var(--ui-text-muted);
+}
+
+@utility text-toned {
+  color: var(--ui-text-toned);
+}
+
+@utility text-default {
+  color: var(--ui-text);
+}
+
+@utility text-highlighted {
+  color: var(--ui-text-highlighted);
+}
+
+@utility text-inverted {
+  color: var(--ui-text-inverted);
+}
+
+@utility bg-default {
+  background-color: var(--ui-bg);
+}
+
+@utility bg-muted {
+  background-color: var(--ui-bg-muted);
+}
+
+@utility bg-elevated {
+  background-color: var(--ui-bg-elevated);
+}
+
+@utility bg-accented {
+  background-color: var(--ui-bg-accented);
+}
+
+@utility bg-inverted {
+  background-color: var(--ui-bg-inverted);
+}
+
+/*
+ * Design tokens
+ *
+ * The palette is deliberately separated from semantic roles. Use `brand-*` or
+ * `violet-*` only when building a palette; use `primary`, `text-muted`,
+ * `bg-elevated`, `border-default`, etc. in components. This mirrors Nuxt UI's
+ * portable semantic-token approach and lets a theme change without rewriting
+ * component classes.
+ */
+:root {
+  color-scheme: light;
+
+  /* Brand palette — 600 is the exact purple used by the logo. */
+  --ui-brand-50: #f6f6ff;
+  --ui-brand-100: #eeeeff;
+  --ui-brand-200: #dadafa;
+  --ui-brand-300: #b8b8ec;
+  --ui-brand-400: #9191dc;
+  --ui-brand-500: #7777d1;
+  --ui-brand-600: #6666cc;
+  --ui-brand-700: #5858b8;
+  --ui-brand-800: #4b4ba1;
+  --ui-brand-900: #3e3e85;
+  --ui-brand-950: #29295a;
+
+  /* Neutral palette — slightly purple-tinted to belong with the brand. */
+  --ui-neutral-0: #ffffff;
+  --ui-neutral-25: #fcfcfe;
+  --ui-neutral-50: #f8f8fb;
+  --ui-neutral-100: #f1f1f6;
+  --ui-neutral-200: #dedee8;
+  --ui-neutral-300: #c7c7d5;
+  --ui-neutral-400: #a4a4b6;
+  --ui-neutral-500: #818195;
+  --ui-neutral-600: #656579;
+  --ui-neutral-700: #4a4a5d;
+  --ui-neutral-800: #30303f;
+  --ui-neutral-900: #1e1e2b;
+  --ui-neutral-950: #12121b;
+
+  --ui-success-50: #edfaf3;
+  --ui-success-100: #d5f3e3;
+  --ui-success-500: #2ca66d;
+  --ui-success-600: #23855a;
+  --ui-success-700: #1b6948;
+  --ui-warning-50: #fff8e8;
+  --ui-warning-100: #ffedc2;
+  --ui-warning-500: #d98b16;
+  --ui-warning-600: #b96d08;
+  --ui-warning-700: #925306;
+  --ui-error-50: #fff0f2;
+  --ui-error-100: #ffdade;
+  --ui-error-500: #dc5667;
+  --ui-error-600: #c23b4d;
+  --ui-error-700: #9b2f3e;
+  --ui-info-50: #edf7ff;
+  --ui-info-100: #d7edff;
+  --ui-info-500: #3b82c4;
+  --ui-info-600: #286b9f;
+  --ui-info-700: #20547c;
+
+  /* Semantic colour intents. */
+  --ui-primary: var(--ui-brand-600);
+  --ui-primary-hover: var(--ui-brand-700);
+  --ui-primary-active: var(--ui-brand-800);
+  --ui-primary-subtle: var(--ui-brand-100);
+  --ui-primary-muted: var(--ui-brand-200);
+  --ui-primary-foreground: #ffffff;
+  --ui-secondary: var(--ui-neutral-700);
+  --ui-secondary-hover: var(--ui-neutral-800);
+  --ui-secondary-active: var(--ui-neutral-900);
+  --ui-secondary-subtle: var(--ui-neutral-100);
+  --ui-secondary-muted: var(--ui-neutral-200);
+  --ui-secondary-foreground: #ffffff;
+
+  --ui-success: var(--ui-success-600);
+  --ui-success-subtle: var(--ui-success-50);
+  --ui-success-muted: var(--ui-success-100);
+  --ui-success-foreground: #ffffff;
+  --ui-warning: var(--ui-warning-600);
+  --ui-warning-subtle: var(--ui-warning-50);
+  --ui-warning-muted: var(--ui-warning-100);
+  --ui-warning-foreground: #ffffff;
+  --ui-error: var(--ui-error-600);
+  --ui-error-subtle: var(--ui-error-50);
+  --ui-error-muted: var(--ui-error-100);
+  --ui-error-foreground: #ffffff;
+  --ui-info: var(--ui-info-600);
+  --ui-info-subtle: var(--ui-info-50);
+  --ui-info-muted: var(--ui-info-100);
+  --ui-info-foreground: #ffffff;
+
+  /* Neutral UI roles: these are the default choice for all components. */
+  --ui-bg: var(--ui-neutral-25);
+  --ui-bg-muted: var(--ui-neutral-50);
+  --ui-bg-elevated: var(--ui-neutral-0);
+  --ui-bg-accented: var(--ui-neutral-100);
+  --ui-bg-inverted: var(--ui-neutral-900);
+  --ui-text: var(--ui-neutral-900);
+  --ui-text-highlighted: var(--ui-neutral-950);
+  --ui-text-toned: var(--ui-neutral-700);
+  --ui-text-muted: var(--ui-neutral-600);
+  --ui-text-dimmed: var(--ui-neutral-500);
+  --ui-text-inverted: var(--ui-neutral-0);
+  --ui-border: var(--ui-neutral-200);
+  --ui-border-accented: var(--ui-neutral-300);
+  --ui-border-inverted: var(--ui-neutral-800);
+  --ui-ring: var(--ui-primary);
+  --ui-ring-offset: var(--ui-bg);
+}
+
+/* Add `class="dark"` to the document root (or use data-theme="dark") to
+ * switch the neutral roles. Palette and intent names stay unchanged. */
+:root.dark,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --ui-bg: var(--ui-neutral-950);
+  --ui-bg-muted: var(--ui-neutral-900);
+  --ui-bg-elevated: var(--ui-neutral-900);
+  --ui-bg-accented: var(--ui-neutral-800);
+  --ui-bg-inverted: var(--ui-neutral-0);
+  --ui-text: var(--ui-neutral-50);
+  --ui-text-highlighted: var(--ui-neutral-0);
+  --ui-text-toned: var(--ui-neutral-300);
+  --ui-text-muted: var(--ui-neutral-400);
+  --ui-text-dimmed: var(--ui-neutral-500);
+  --ui-text-inverted: var(--ui-neutral-950);
+  --ui-border: var(--ui-neutral-800);
+  --ui-border-accented: var(--ui-neutral-700);
+  --ui-border-inverted: var(--ui-neutral-200);
+  --ui-ring-offset: var(--ui-bg);
+}
+
 @theme {
-  --font-display: "Alegreya", "serif";
-  --font-body: "Alegreya Sans", "sans-serif";
+  /* Remove Tailwind's built-in palette; expose only project design tokens. */
+  --color-*: initial;
 
-  /* Brand: preserve the logo’s exact purple */
-  --color-brand: #66c;
-  --color-brand-hover: #5858b8;
-  --color-brand-active: #4b4ba1;
-  --color-brand-subtle: #eeeeff;
+  --font-display: 'Alegreya', 'serif';
+  --font-body: 'Alegreya Sans', 'sans-serif';
 
-  /* Semantic UI colours */
-  --color-background: #fcfcfe;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f5f5fa;
-  --color-foreground: #1e1e2b;
-  --color-foreground-muted: #656579;
-  --color-border: #dedee8;
-  --color-focus: #66c;
+  /* Palette utilities: bg-brand-600, text-neutral-700, etc. */
+  --color-brand-50: var(--ui-brand-50);
+  --color-brand-100: var(--ui-brand-100);
+  --color-brand-200: var(--ui-brand-200);
+  --color-brand-300: var(--ui-brand-300);
+  --color-brand-400: var(--ui-brand-400);
+  --color-brand-500: var(--ui-brand-500);
+  --color-brand-600: var(--ui-brand-600);
+  --color-brand-700: var(--ui-brand-700);
+  --color-brand-800: var(--ui-brand-800);
+  --color-brand-900: var(--ui-brand-900);
+  --color-brand-950: var(--ui-brand-950);
+  --color-neutral-0: var(--ui-neutral-0);
+  --color-neutral-25: var(--ui-neutral-25);
+  --color-neutral-50: var(--ui-neutral-50);
+  --color-neutral-100: var(--ui-neutral-100);
+  --color-neutral-200: var(--ui-neutral-200);
+  --color-neutral-300: var(--ui-neutral-300);
+  --color-neutral-400: var(--ui-neutral-400);
+  --color-neutral-500: var(--ui-neutral-500);
+  --color-neutral-600: var(--ui-neutral-600);
+  --color-neutral-700: var(--ui-neutral-700);
+  --color-neutral-800: var(--ui-neutral-800);
+  --color-neutral-900: var(--ui-neutral-900);
+  --color-neutral-950: var(--ui-neutral-950);
 
-  --color-success: #23855a;
-  --color-warning: #b96d08;
-  --color-danger: #c23b4d;
+  /* Semantic intent utilities: bg-primary, text-success, ring-error, etc. */
+  --color-primary: var(--ui-primary);
+  --color-primary-hover: var(--ui-primary-hover);
+  --color-primary-active: var(--ui-primary-active);
+  --color-primary-subtle: var(--ui-primary-subtle);
+  --color-primary-muted: var(--ui-primary-muted);
+  --color-primary-foreground: var(--ui-primary-foreground);
+  --color-secondary: var(--ui-secondary);
+  --color-secondary-hover: var(--ui-secondary-hover);
+  --color-secondary-active: var(--ui-secondary-active);
+  --color-secondary-subtle: var(--ui-secondary-subtle);
+  --color-secondary-muted: var(--ui-secondary-muted);
+  --color-secondary-foreground: var(--ui-secondary-foreground);
+  --color-success: var(--ui-success);
+  --color-success-subtle: var(--ui-success-subtle);
+  --color-success-muted: var(--ui-success-muted);
+  --color-success-foreground: var(--ui-success-foreground);
+  --color-warning: var(--ui-warning);
+  --color-warning-subtle: var(--ui-warning-subtle);
+  --color-warning-muted: var(--ui-warning-muted);
+  --color-warning-foreground: var(--ui-warning-foreground);
+  --color-error: var(--ui-error);
+  --color-error-subtle: var(--ui-error-subtle);
+  --color-error-muted: var(--ui-error-muted);
+  --color-error-foreground: var(--ui-error-foreground);
+  --color-info: var(--ui-info);
+  --color-info-subtle: var(--ui-info-subtle);
+  --color-info-muted: var(--ui-info-muted);
+  --color-info-foreground: var(--ui-info-foreground);
 
+  /* Semantic neutral utilities, following Nuxt UI's naming. */
+  --color-text-default: var(--ui-text);
+  --color-text-highlighted: var(--ui-text-highlighted);
+  --color-text-toned: var(--ui-text-toned);
+  --color-text-muted: var(--ui-text-muted);
+  --color-text-dimmed: var(--ui-text-dimmed);
+  --color-text-inverted: var(--ui-text-inverted);
+  --color-border-default: var(--ui-border);
+  --color-border-accented: var(--ui-border-accented);
+  --color-border-inverted: var(--ui-border-inverted);
+  --color-ring-default: var(--ui-ring);
+  --color-ring-accented: var(--ui-border-accented);
+
+  /* Compatibility aliases for the original, smaller token set. */
+  --color-brand: var(--ui-primary);
+  --color-brand-hover: var(--ui-primary-hover);
+  --color-brand-active: var(--ui-primary-active);
+  --color-brand-subtle: var(--ui-primary-subtle);
+  --color-background: var(--ui-bg);
+  --color-surface: var(--ui-bg-elevated);
+  --color-surface-muted: var(--ui-bg-accented);
+  --color-foreground: var(--ui-text);
+  --color-foreground-muted: var(--ui-text-muted);
+  --color-border: var(--ui-border);
+  --color-focus: var(--ui-ring);
+  --color-danger: var(--ui-error);
+
+  --spacing-0_5: 0.125rem;
+  --spacing-1_5: 0.375rem;
+  --spacing-2_5: 0.625rem;
+  --spacing-3_5: 0.875rem;
+  --spacing-4_5: 1.125rem;
+  --spacing-5_5: 1.375rem;
+  --spacing-18: 4.5rem;
+  --spacing-22: 5.5rem;
+  --spacing-26: 6.5rem;
+  --spacing-30: 7.5rem;
+
+  --radius-xs: 0.25rem;
   --radius-sm: 0.375rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
   --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-3xl: 3rem;
 
-  --shadow-card: 0 1px 2px rgb(30 30 43 / 6%),
-                 0 8px 24px rgb(30 30 43 / 8%);
+  --shadow-xs: 0 1px 2px rgb(30 30 43 / 5%);
+  --shadow-sm: 0 1px 3px rgb(30 30 43 / 8%), 0 1px 2px rgb(30 30 43 / 4%);
+  --shadow-md: 0 4px 8px rgb(30 30 43 / 7%), 0 2px 4px rgb(30 30 43 / 5%);
+  --shadow-lg: 0 12px 24px rgb(30 30 43 / 9%), 0 4px 8px rgb(30 30 43 / 5%);
+  --shadow-xl: 0 20px 40px rgb(30 30 43 / 12%), 0 8px 16px rgb(30 30 43 / 6%);
+  --shadow-card: var(--shadow-md);
+  --shadow-focus: 0 0 0 3px rgb(102 102 204 / 28%);
 
-  --animate-slideDownAndFade: slideDownAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-slideLeftAndFade: slideLeftAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --text-2xs: 0.6875rem;
+  --text-2xs--line-height: 1rem;
+  --text-xs: 0.75rem;
+  --text-xs--line-height: 1rem;
+  --text-sm: 0.875rem;
+  --text-sm--line-height: 1.25rem;
+  --text-base: 1rem;
+  --text-base--line-height: 1.5rem;
+  --text-lg: 1.125rem;
+  --text-lg--line-height: 1.75rem;
+  --text-xl: 1.25rem;
+  --text-xl--line-height: 1.75rem;
+  --text-2xl: 1.5rem;
+  --text-2xl--line-height: 2rem;
+  --text-3xl: 1.875rem;
+  --text-3xl--line-height: 2.25rem;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 2.5rem;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1;
+  --text-6xl: 3.75rem;
+  --text-6xl--line-height: 1;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --duration-slow: 400ms;
+
+  --animate-slideDownAndFade: slideDownAndFade 400ms
+    cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slideLeftAndFade: slideLeftAndFade 400ms
+    cubic-bezier(0.16, 1, 0.3, 1);
   --animate-slideUpAndFade: slideUpAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
-  --animate-slideRightAndFade: slideRightAndFade 400ms cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slideRightAndFade: slideRightAndFade 400ms
+    cubic-bezier(0.16, 1, 0.3, 1);
   --animate-scaleIn: scaleIn 200ms ease;
   --animate-scaleOut: scaleOut 200ms ease;
   --animate-fadeIn: fadeIn 200ms ease;
@@ -75,7 +373,7 @@
       transform: translateX(0);
     }
   }
-  
+
   @keyframes slideUpAndFade {
     from {
       opacity: 0;
@@ -86,7 +384,7 @@
       transform: translateY(0);
     }
   }
-  
+
   @keyframes slideRightAndFade {
     from {
       opacity: 0;
@@ -97,7 +395,7 @@
       transform: translateX(0);
     }
   }
-  
+
   @keyframes enterFromRight {
     from {
       opacity: 0;
@@ -108,7 +406,7 @@
       transform: translateX(0);
     }
   }
-  
+
   @keyframes enterFromLeft {
     from {
       opacity: 0;
@@ -119,7 +417,7 @@
       transform: translateX(0);
     }
   }
-  
+
   @keyframes exitToRight {
     from {
       opacity: 1;
@@ -130,7 +428,7 @@
       transform: translateX(200px);
     }
   }
-  
+
   @keyframes exitToLeft {
     from {
       opacity: 1;
@@ -141,7 +439,7 @@
       transform: translateX(-200px);
     }
   }
-  
+
   @keyframes scaleIn {
     from {
       opacity: 0;
@@ -152,7 +450,7 @@
       transform: rotateX(0deg) scale(1);
     }
   }
-  
+
   @keyframes scaleOut {
     from {
       opacity: 1;
@@ -163,7 +461,7 @@
       transform: rotateX(-10deg) scale(0.95);
     }
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -172,7 +470,7 @@
       opacity: 1;
     }
   }
-  
+
   @keyframes fadeOut {
     from {
       opacity: 1;
@@ -185,7 +483,7 @@
 
 @layer base {
   html {
-      @apply scroll-smooth;
+    @apply scroll-smooth;
   }
 
   h1,
@@ -194,14 +492,19 @@
   h4,
   h5,
   h6 {
-      @apply font-display;
+    @apply font-display;
   }
-  
+
   body {
-      @apply font-body;
+    @apply bg-background font-body text-default antialiased;
   }
 
   p {
-      @apply max-w-prose;
+    @apply max-w-prose;
+  }
+
+  ::selection {
+    color: var(--ui-primary-foreground);
+    background-color: var(--ui-primary);
   }
 }

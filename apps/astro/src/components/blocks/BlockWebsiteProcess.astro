@@ -1,0 +1,61 @@
+---
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+
+const steps = [
+  {
+    label: 'Ontdekken',
+    title: 'We beginnen bij jouw verhaal.',
+    description: 'In een gerichte start brengen we ambities, publiek, inhoud en praktische wensen samen.',
+  },
+  {
+    label: 'Richting geven',
+    title: 'We maken het idee zichtbaar.',
+    description: 'Je ziet hoe structuur, inhoud en visuele stijl samen een herkenbare ervaring worden.',
+  },
+  {
+    label: 'Bouwen',
+    title: 'We brengen alles tot leven.',
+    description: 'Het ontwerp wordt een snelle, toegankelijke website die prettig werkt op ieder scherm.',
+  },
+  {
+    label: 'Lanceren',
+    title: 'Je bent klaar om vooruit te gaan.',
+    description: 'Na de laatste controles gaat de website live en heb je een stevige basis om op voort te bouwen.',
+  },
+]
+---
+
+<section class="overflow-hidden bg-neutral-950 py-16 text-neutral-0 sm:py-24 lg:py-28">
+  <div class="container">
+    <div class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
+      <div class="max-w-md">
+        <AppEyebrow
+          label="Zo werken we samen"
+          class="text-brand-300 before:bg-brand-300"
+        />
+        <h2 class="mt-4 font-display text-4xl leading-none font-bold sm:text-5xl">
+          Duidelijk van eerste gesprek tot livegang.
+        </h2>
+        <p class="mt-5 text-xl leading-relaxed text-neutral-300">
+          Je weet waar we zijn, welke keuzes voorliggen en wat de volgende stap is. We maken het proces samen
+          overzichtelijk.
+        </p>
+      </div>
+
+      <ol class="relative border-l border-neutral-700 pl-7 sm:pl-10">
+        {
+          steps.map((step, index) => (
+            <li class:list={['relative pb-9', index === steps.length - 1 && 'pb-0']}>
+              <span class="absolute top-1 -left-[2.15rem] flex size-4 items-center justify-center rounded-full bg-neutral-950 ring-1 ring-brand-400 sm:-left-[2.65rem]">
+                <span class="size-1.5 rounded-full bg-brand-300" />
+              </span>
+              <p class="text-sm font-bold tracking-widest text-brand-300 uppercase">{step.label}</p>
+              <h3 class="mt-2 font-display text-2xl font-bold sm:text-3xl">{step.title}</h3>
+              <p class="mt-2 max-w-xl text-lg leading-relaxed text-neutral-300">{step.description}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

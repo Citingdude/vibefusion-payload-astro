@@ -1,27 +1,14 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-import { getLocalPayload } from '@/lib/payload'
-
-const payload = await getLocalPayload()
-const { totalDocs: mediaCount, docs } = await payload.find({
-  collection: 'media',
-  depth: 0,
-  limit: 0,
-})
+import BlockHero from '@/components/blocks/BlockHero.astro'
+import BlockProjects from '@/components/blocks/BlockProjects.astro'
+import BlockServices from '@/components/blocks/BlockServices.astro'
+import BlockContactCta from '@/components/blocks/BlockContactCta.astro'
 ---
 
-<Layout>
-  <section>
-    <div class="container">
-      <h1 class="text-2xl">Vibefusion</h1>
-      <p>{mediaCount} media {mediaCount === 1 ? 'item' : 'items'} in Payload.</p>
-
-      <img src="" alt="">
-
-      {docs.map(item => (
-        <p>{item.alt}</p>
-        <img class="size-8" src={item.url} />
-      ))}
-    </div>
-  </section>
+<Layout title="Vibefusion — digitale ervaringen met karakter">
+  <BlockHero />
+  <BlockServices />
+  <BlockProjects />
+  <BlockContactCta />
 </Layout>

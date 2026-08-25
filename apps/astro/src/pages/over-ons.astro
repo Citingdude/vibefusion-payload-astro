@@ -1,0 +1,28 @@
+---
+import BlockAboutStory from '@/components/blocks/BlockAboutStory.astro'
+import BlockAboutValues from '@/components/blocks/BlockAboutValues.astro'
+import BlockContactCta from '@/components/blocks/BlockContactCta.astro'
+import BlockPageHero from '@/components/blocks/BlockPageHero.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout
+  title="Over Vibefusion — klein team voor grote ideeën"
+  description="Maak kennis met Vibefusion: een kleine digitale studio die strategie, design en techniek samenbrengt in websites met karakter."
+>
+  <BlockPageHero
+    eyebrow="Over Vibefusion"
+    title="Een klein team voor grote ideeën."
+    description="We zijn een digitale studio die organisaties helpt om hun verhaal om te zetten in een online ervaring met karakter—helder bedacht, sterk vormgegeven en slim gebouwd."
+    primaryAction={{ label: 'Zo werken we', href: '/werkwijze' }}
+    secondaryAction={{ label: 'Maak kennis', href: '/contact' }}
+    variant="dark"
+  />
+  <BlockAboutStory />
+  <BlockAboutValues />
+  <BlockContactCta
+    eyebrow="Goed idee, goede klik"
+    title="Benieuwd wat we samen kunnen maken?"
+    description="Vertel ons over je organisatie en het idee dat je verder wilt brengen. Dan kijken we samen waar de mogelijkheden liggen."
+  />
+</Layout>

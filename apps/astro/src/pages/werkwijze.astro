@@ -1,0 +1,28 @@
+---
+import BlockCollaboration from '@/components/blocks/BlockCollaboration.astro'
+import BlockContactCta from '@/components/blocks/BlockContactCta.astro'
+import BlockPageHero from '@/components/blocks/BlockPageHero.astro'
+import BlockProcessDetail from '@/components/blocks/BlockProcessDetail.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout
+  title="Onze werkwijze — Vibefusion"
+  description="Ontdek hoe Vibefusion van eerste gesprek naar een herkenbare, doordachte en technisch sterke website werkt."
+>
+  <BlockPageHero
+    eyebrow="Onze werkwijze"
+    title="Samen maken we van een idee iets dat klopt."
+    description="Een helder proces geeft goede ideeën de ruimte. Je weet steeds waar we staan, waarom we keuzes maken en wat we van elkaar nodig hebben."
+    primaryAction={{ label: 'Bekijk het proces', href: '#proces' }}
+    secondaryAction={{ label: 'Bespreek jouw idee', href: '/contact' }}
+    variant="brand"
+  />
+  <BlockProcessDetail />
+  <BlockCollaboration />
+  <BlockContactCta
+    eyebrow="Zullen we beginnen?"
+    title="De eerste stap is gewoon een goed gesprek."
+    description="Vertel ons wat er speelt. We luisteren, stellen vragen en kijken samen of wij de juiste partner zijn voor de volgende stap."
+  />
+</Layout>

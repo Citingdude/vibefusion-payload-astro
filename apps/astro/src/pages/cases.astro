@@ -1,0 +1,27 @@
+---
+import BlockCasesShowcase from '@/components/blocks/BlockCasesShowcase.astro'
+import BlockContactCta from '@/components/blocks/BlockContactCta.astro'
+import BlockPageHero from '@/components/blocks/BlockPageHero.astro'
+import BlockProjectPrinciples from '@/components/blocks/BlockProjectPrinciples.astro'
+import Layout from '@/layouts/Layout.astro'
+---
+
+<Layout
+  title="Cases en projecttypes — Vibefusion"
+  description="Bekijk het soort websites en digitale ervaringen dat Vibefusion maakt: herkenbaar, helder en klaar om mee te groeien."
+>
+  <BlockPageHero
+    eyebrow="Cases"
+    title="Werk dat niet opgaat in de massa."
+    description="We maken digitale ervaringen die het eigen karakter van een organisatie zichtbaar maken. Hier ontdek je het soort vraagstukken waar we graag onze tanden in zetten."
+    primaryAction={{ label: 'Ontdek het werk', href: '#werk' }}
+    secondaryAction={{ label: 'Start een project', href: '/contact' }}
+  />
+  <BlockCasesShowcase />
+  <BlockProjectPrinciples />
+  <BlockContactCta
+    eyebrow="Jouw idee als volgende"
+    title="Iets in gedachten dat een eigen plek verdient?"
+    description="Vertel ons waar je aan denkt. We onderzoeken samen hoe strategie, design en techniek jouw idee sterker kunnen maken."
+  />
+</Layout>

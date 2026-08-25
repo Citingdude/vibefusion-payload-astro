@@ -1,0 +1,52 @@
+---
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+
+const outcomes = [
+  {
+    number: '01',
+    title: 'Je verhaal wordt helder',
+    description: 'Bezoekers begrijpen snel wat je doet, voor wie je er bent en waarom ze juist bij jou moeten zijn.',
+  },
+  {
+    number: '02',
+    title: 'Je merk voelt geloofwaardig',
+    description: 'Een herkenbare uitstraling en doordachte ervaring geven mensen het vertrouwen om verder te kijken.',
+  },
+  {
+    number: '03',
+    title: 'De volgende stap voelt logisch',
+    description: 'Heldere routes en gerichte inhoud helpen bezoekers van interesse naar contact, aanvraag of aankoop.',
+  },
+]
+---
+
+<section class="border-y border-border-default bg-elevated py-16 sm:py-24 lg:py-28">
+  <div class="container">
+    <div class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
+      <div class="max-w-lg">
+        <AppEyebrow label="Meer dan een mooi visitekaartje" />
+        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+          Een website die werkt voor je bedrijf.
+        </h2>
+        <p class="mt-5 text-xl leading-relaxed text-toned">
+          Je website moet niet alleen goed ogen. Hij moet de juiste mensen meenemen, vragen beantwoorden en vertrouwen
+          opbouwen—ook wanneer jij niet aan het werk bent.
+        </p>
+      </div>
+
+      <ol class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+        {
+          outcomes.map((outcome) => (
+            <li class="group grid gap-4 rounded-xl border border-border-default bg-background p-5 transition-colors hover:border-brand-300 sm:block lg:grid lg:grid-cols-[3rem_1fr] lg:p-6">
+              <span class="font-display text-lg font-bold text-primary">{outcome.number}</span>
+              <div>
+                <h3 class="font-display text-2xl font-bold text-highlighted">{outcome.title}</h3>
+                <p class="mt-2 text-lg leading-relaxed text-muted">{outcome.description}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

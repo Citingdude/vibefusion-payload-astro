@@ -1,0 +1,86 @@
+---
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+
+const steps = [
+  {
+    number: '01',
+    eyebrow: 'Kennismaken',
+    title: 'Eerst begrijpen, dan bedenken.',
+    description:
+      'We bespreken waar je staat, wat je wilt veranderen en voor wie we de ervaring maken. Zo starten we met de juiste vraag.',
+    output: 'Een gedeelde richting en heldere uitgangspunten',
+  },
+  {
+    number: '02',
+    eyebrow: 'Richting bepalen',
+    title: 'Van ambitie naar een concreet plan.',
+    description:
+      'We brengen verhaal, inhoud en structuur samen. Belangrijke keuzes worden vroeg zichtbaar, voordat we details uitwerken.',
+    output: 'Een logische structuur en inhoudelijke koers',
+  },
+  {
+    number: '03',
+    eyebrow: 'Ontwerpen',
+    title: 'Een ervaring die eigen voelt.',
+    description:
+      'We vertalen de richting naar een visueel systeem en heldere pagina’s. Je kijkt mee en geeft feedback op gerichte momenten.',
+    output: 'Een herkenbaar ontwerp voor ieder scherm',
+  },
+  {
+    number: '04',
+    eyebrow: 'Bouwen',
+    title: 'Doordacht tot in de techniek.',
+    description: 'We brengen het ontwerp tot leven met aandacht voor snelheid, toegankelijkheid en prettig beheer.',
+    output: 'Een werkende website, zorgvuldig gecontroleerd',
+  },
+  {
+    number: '05',
+    eyebrow: 'Lanceren',
+    title: 'Klaar om de wereld in te gaan.',
+    description:
+      'We lopen alles samen na en zetten de website live. Je krijgt een basis waar je met vertrouwen op verder kunt.',
+    output: 'Een live website en een duidelijke overdracht',
+  },
+]
+---
+
+<section
+  id="proces"
+  class="scroll-mt-8 bg-background py-16 sm:py-24 lg:py-28"
+>
+  <div class="container">
+    <div class="grid gap-12 lg:grid-cols-[0.68fr_1.32fr] lg:gap-20">
+      <div class="max-w-md lg:sticky lg:top-8 lg:self-start">
+        <AppEyebrow label="Ons proces" />
+        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+          Ruimte voor ideeën. Houvast in elke stap.
+        </h2>
+        <p class="mt-5 text-xl leading-relaxed text-toned">
+          Creatief werk hoeft niet vaag te zijn. We werken in overzichtelijke fases, met duidelijke beslismomenten en
+          ruimte om samen te scherpen.
+        </p>
+      </div>
+
+      <ol class="divide-y divide-border-default border-y border-border-default">
+        {
+          steps.map((step) => (
+            <li class="grid gap-5 py-8 sm:grid-cols-[4rem_1fr] sm:py-10">
+              <span class="font-display text-2xl font-bold text-primary">{step.number}</span>
+              <div>
+                <p class="text-sm font-bold tracking-widest text-muted uppercase">{step.eyebrow}</p>
+                <h3 class="mt-2 font-display text-3xl leading-tight font-bold text-highlighted sm:text-4xl">
+                  {step.title}
+                </h3>
+                <p class="mt-3 max-w-xl text-lg leading-relaxed text-muted">{step.description}</p>
+                <p class="mt-5 flex items-start gap-3 font-bold text-toned">
+                  <span class="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
+                  {step.output}
+                </p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </div>
+</section>

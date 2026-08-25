@@ -4,7 +4,7 @@ import type { HTMLAttributes } from 'astro/types'
 type AnchorAttributes = Omit<HTMLAttributes<'a'>, 'href' | 'target' | 'rel'>
 type ButtonAttributes = Omit<HTMLAttributes<'button'>, 'type'>
 
-type ButtonVariant = 'primary' | 'secondary' | 'outline' | 'ghost'
+type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'outline' | 'ghost'
 type ButtonSize = 'sm' | 'md' | 'lg'
 
 interface Props extends AnchorAttributes, ButtonAttributes {
@@ -31,32 +31,49 @@ const {
   ...attributes
 } = Astro.props
 
+const hasIconLeft = Astro.slots.has('icon-left')
+const hasIconRight = Astro.slots.has('icon-right')
+
 const buttonClasses = [
-  'inline-flex w-full items-center justify-center rounded-br-md rounded-tl-md font-display font-bold duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 sm:w-fit transition-all ease-out',
+  'inline-flex w-full items-center justify-center rounded-br-md rounded-tl-md font-display font-bold duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 sm:w-fit transition-all ease-out active:scale-98',
+  (hasIconLeft || hasIconRight) && 'gap-2',
   {
     sm: 'px-4 py-2 text-sm',
     md: 'px-5 py-3 text-base',
     lg: 'px-6 py-4 text-lg',
   }[size],
   {
-    primary: 'bg-brand text-white hover:bg-brand-hover active:bg-brand-active',
-    secondary: 'border border-brand bg-surface text-foreground hover:border-brand hover:bg-brand-subtle',
-    outline: 'border border-brand text-brand hover:bg-brand-subtle active:bg-brand-subtle',
-    ghost: 'text-brand hover:bg-brand-subtle active:bg-brand-subtle',
+    primary: 'bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active',
+    secondary: 'border border-border-default border-primary bg-primary/10 text-default hover:bg-primary/5',
+    tertiary: 'bg-neutral-950 text-neutral-0 hover:bg-neutral-900 active:bg-neutral-800',
+    outline: 'border border-primary text-primary hover:bg-primary-subtle active:bg-primary-muted',
+    ghost: 'text-primary hover:bg-primary-subtle active:bg-primary-muted',
   }[variant],
 ]
 ---
 
 {
-  href
-    ? (
-        <a href={href} target={target} rel={rel} class:list={[buttonClasses, className]} {...attributes}>
-          <slot />
-        </a>
-      )
-    : (
-      <button type={type} class:list={[buttonClasses, className]} {...attributes}>
-        <slot />
-      </button>
-    )
+  href ? (
+    <a
+      href={href}
+      target={target}
+      rel={rel}
+      class:list={[buttonClasses, className]}
+      {...attributes}
+    >
+      {hasIconLeft && <slot name="icon-left" />}
+      <slot />
+      {hasIconRight && <slot name="icon-right" />}
+    </a>
+  ) : (
+    <button
+      type={type}
+      class:list={[buttonClasses, className]}
+      {...attributes}
+    >
+      {hasIconLeft && <slot name="icon-left" />}
+      <slot />
+      {hasIconRight && <slot name="icon-right" />}
+    </button>
+  )
 }

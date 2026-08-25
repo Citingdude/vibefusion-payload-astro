@@ -1,0 +1,42 @@
+---
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+
+interface Props {
+  eyebrow?: string
+  title?: string
+  description?: string
+}
+
+const {
+  eyebrow = 'Waar we op sturen',
+  title = 'Mooi is pas het begin.',
+  description = 'Goed digitaal werk voelt eigen, maakt keuzes eenvoudig en blijft bruikbaar wanneer je organisatie verder groeit.',
+} = Astro.props
+
+const principles = [
+  ['Herkenbaar', 'Ieder detail draagt hetzelfde verhaal, zodat je merk niet verdwijnt in een standaardoplossing.'],
+  ['Helder', 'Inhoud en routes geven richting zonder dat bezoekers hoeven te zoeken of raden.'],
+  ['Duurzaam', 'De basis blijft prettig te beheren en is gemaakt om mee te bewegen met nieuwe plannen.'],
+]
+---
+
+<section class="border-y border-border-default bg-elevated py-16 sm:py-24 lg:py-28">
+  <div class="container">
+    <div class="max-w-3xl">
+      <AppEyebrow label={eyebrow} />
+      <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">{title}</h2>
+      <p class="mt-5 max-w-2xl text-xl leading-relaxed text-toned">{description}</p>
+    </div>
+    <div class="mt-10 grid border-y border-border-default md:grid-cols-3 md:divide-x md:divide-border-default">
+      {
+        principles.map(([name, copy], index) => (
+          <article class="py-7 md:px-7 md:first:pl-0 md:last:pr-0">
+            <p class="font-display text-lg font-bold text-primary">0{index + 1}</p>
+            <h3 class="mt-5 font-display text-3xl font-bold text-highlighted">{name}</h3>
+            <p class="mt-3 text-lg leading-relaxed text-muted">{copy}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
