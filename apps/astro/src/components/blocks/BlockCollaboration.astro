@@ -1,0 +1,46 @@
+---
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+
+const qualities = [
+  [
+    'Korte lijnen',
+    'Je praat rechtstreeks met de mensen die aan je website werken. Dat houdt keuzes helder en de vaart erin.',
+  ],
+  [
+    'Gerichte feedback',
+    'We laten zien waar een keuze vandaan komt en maken duidelijk waarop we jouw input nodig hebben.',
+  ],
+  [
+    'Samen eigenaarschap',
+    'Jij kent je organisatie, wij het digitale vak. De sterkste oplossing ontstaat wanneer die kennis samenkomt.',
+  ],
+]
+---
+
+<section class="bg-brand-100 py-16 sm:py-24 lg:py-28">
+  <div class="container">
+    <div class="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <div class="max-w-md">
+        <AppEyebrow label="Samenwerken zonder ruis" />
+        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+          Betrokken waar het telt.
+        </h2>
+        <p class="mt-5 text-xl leading-relaxed text-toned">
+          We houden het proces persoonlijk en overzichtelijk. Niet meer overleg dan nodig, wel genoeg contact om samen
+          goede keuzes te maken.
+        </p>
+      </div>
+      <div class="grid gap-4 sm:grid-cols-3">
+        {
+          qualities.map(([title, description], index) => (
+            <article class="rounded-2xl border border-brand-200 bg-elevated p-6">
+              <span class="font-display text-lg font-bold text-primary">0{index + 1}</span>
+              <h3 class="mt-8 font-display text-2xl font-bold text-highlighted">{title}</h3>
+              <p class="mt-3 text-lg leading-relaxed text-muted">{description}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

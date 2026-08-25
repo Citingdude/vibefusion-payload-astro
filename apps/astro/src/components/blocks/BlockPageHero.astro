@@ -1,0 +1,89 @@
+---
+import AppButton from '@/components/app/button/AppButton.astro'
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+import IconArrowRight from '@/components/icons/IconArrowRight.astro'
+
+interface Props {
+  eyebrow: string
+  title: string
+  description: string
+  primaryAction?: { label: string; href: string }
+  secondaryAction?: { label: string; href: string }
+  variant?: 'light' | 'brand' | 'dark'
+}
+
+const { eyebrow, title, description, primaryAction, secondaryAction, variant = 'light' } = Astro.props
+
+const sectionClasses = {
+  light: 'bg-background text-default',
+  brand: 'bg-primary text-primary-foreground',
+  dark: 'bg-neutral-950 text-neutral-0',
+}
+
+const descriptionClasses = {
+  light: 'text-toned',
+  brand: 'text-brand-100',
+  dark: 'text-neutral-300',
+}
+---
+
+<section class:list={['relative isolate overflow-hidden py-16 sm:py-24 lg:py-30', sectionClasses[variant]]}>
+  <div
+    class:list={[
+      'pointer-events-none absolute top-[-12rem] right-[-8rem] -z-10 size-[32rem] rounded-full border-[4rem] opacity-35',
+      variant === 'light' ? 'border-brand-200' : 'border-current',
+    ]}
+    aria-hidden="true"
+  >
+  </div>
+  <div
+    class:list={[
+      'pointer-events-none absolute right-[28%] bottom-14 -z-10 size-20 rotate-12 rounded-2xl border opacity-30',
+      variant === 'light' ? 'border-brand-400' : 'border-current',
+    ]}
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="container">
+    <div class="max-w-4xl">
+      <AppEyebrow
+        label={eyebrow}
+        class:list={['mb-5', variant === 'brand' && 'text-brand-100', variant === 'dark' && 'text-brand-300']}
+      />
+      <h1 class="max-w-3xl font-display text-5xl leading-[0.95] font-bold sm:text-6xl lg:text-7xl">
+        {title}
+      </h1>
+      <p class:list={['mt-7 max-w-2xl text-xl leading-relaxed sm:text-2xl', descriptionClasses[variant]]}>
+        {description}
+      </p>
+
+      {
+        (primaryAction || secondaryAction) && (
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            {primaryAction && (
+              <AppButton
+                href={primaryAction.href}
+                size="lg"
+                variant={variant === 'light' ? 'primary' : 'tertiary'}
+              >
+                {primaryAction.label}
+                <IconArrowRight slot="icon-right" />
+              </AppButton>
+            )}
+            {secondaryAction && (
+              <AppButton
+                href={secondaryAction.href}
+                size="lg"
+                variant={variant === 'light' ? 'secondary' : 'outline'}
+                class={variant !== 'light' ? 'border-current text-inverted hover:bg-neutral-0/10' : undefined}
+              >
+                {secondaryAction.label}
+              </AppButton>
+            )}
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>
