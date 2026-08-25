@@ -1,0 +1,58 @@
+---
+import AppButton from '@/components/app/button/AppButton.astro'
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+import IconArrowRight from '@/components/icons/IconArrowRight.astro'
+
+interface Props {
+  eyebrow?: string
+  title?: string
+  description?: string
+  action?: { label: string; href: string }
+}
+
+const {
+  eyebrow = 'Klaar om te beginnen?',
+  title = 'Laten we iets maken dat blijft hangen.',
+  description = 'Vertel ons waar je naartoe wilt. Wij denken mee over de slimste route van eerste idee tot sterke digitale ervaring.',
+  action = { label: 'Start een project', href: '/contact' },
+} = Astro.props
+---
+
+<section class="bg-background pb-16 sm:pb-24 lg:pb-28">
+  <div class="container">
+    <div
+      class="relative isolate overflow-hidden rounded-2xl bg-brand-100 px-6 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-16"
+    >
+      <div
+        class="pointer-events-none absolute -right-20 -bottom-40 -z-10 size-80 rounded-full border-[2rem] border-brand-300/50 sm:-right-12 sm:size-96"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="pointer-events-none absolute top-10 right-[22%] -z-10 size-16 rotate-12 rounded-xl border border-brand-400/50"
+        aria-hidden="true"
+      >
+      </div>
+
+      <div class="grid items-end gap-8 lg:grid-cols-[1fr_auto] lg:gap-16">
+        <div class="max-w-3xl">
+          <AppEyebrow label={eyebrow} />
+          <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl lg:text-6xl">
+            {title}
+          </h2>
+          <p class="mt-5 max-w-2xl text-lg leading-relaxed text-toned sm:text-xl">
+            {description}
+          </p>
+        </div>
+
+        <AppButton
+          href={action.href}
+          size="lg"
+        >
+          {action.label}
+          <IconArrowRight slot="icon-right" />
+        </AppButton>
+      </div>
+    </div>
+  </div>
+</section>
