@@ -33,10 +33,10 @@ const steps = [
           label="Zo werken we samen"
           class="text-brand-300 before:bg-brand-300"
         />
-        <h2 class="mt-4 font-display text-4xl leading-none font-bold sm:text-5xl">
+        <h2 class="mt-4 section-title">
           Duidelijk van eerste gesprek tot livegang.
         </h2>
-        <p class="mt-5 text-xl leading-relaxed text-neutral-300">
+        <p class="mt-5 section-intro text-neutral-300">
           Je weet waar we zijn, welke keuzes voorliggen en wat de volgende stap is. We maken het proces samen
           overzichtelijk.
         </p>
@@ -50,8 +50,8 @@ const steps = [
                 <span class="size-1.5 rounded-full bg-brand-300" />
               </span>
               <p class="text-sm font-bold tracking-widest text-brand-300 uppercase">{step.label}</p>
-              <h3 class="mt-2 font-display text-2xl font-bold sm:text-3xl">{step.title}</h3>
-              <p class="mt-2 max-w-xl text-lg leading-relaxed text-neutral-300">{step.description}</p>
+              <h3 class="mt-2 card-title">{step.title}</h3>
+              <p class="mt-2 max-w-xl text-base leading-relaxed text-neutral-300">{step.description}</p>
             </li>
           ))
         }

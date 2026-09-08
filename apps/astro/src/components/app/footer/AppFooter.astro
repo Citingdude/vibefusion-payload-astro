@@ -1,57 +1,25 @@
 ---
 import AppLogo from '@/components/app/logo/AppLogo.astro'
-
 const year = new Date().getFullYear()
+const links = [['Websites', '/websites'], ['Cases', '/cases'], ['Werkwijze', '/werkwijze'], ['Over ons', '/over-ons'], ['Contact', '/contact']]
 ---
 
-<footer class="bg-neutral-950 text-neutral-0">
+<footer class="border-t border-border-default bg-muted">
   <div class="container py-12 sm:py-16">
-    <div class="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
-      <AppLogo variant="light" />
-
-      <nav aria-label="Footer navigation">
-        <ul class="flex flex-wrap gap-x-6 gap-y-3 text-lg text-neutral-300">
-          <li>
-            <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
-              href="/websites"
-              >Websites</a
-            >
-          </li>
-          <li>
-            <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
-              href="/cases"
-              >Cases</a
-            >
-          </li>
-          <li>
-            <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
-              href="/werkwijze"
-              >Werkwijze</a
-            >
-          </li>
-          <li>
-            <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
-              href="/over-ons"
-              >Over ons</a
-            >
-          </li>
-          <li>
-            <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
-              href="/contact"
-              >Contact</a
-            >
-          </li>
+    <div class="flex flex-col justify-between gap-10 md:flex-row md:items-start">
+      <div>
+        <AppLogo />
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted">Een kleine digitale studio.<br />Heldere ideeën. Sterk digitaal werk.</p>
+      </div>
+      <nav aria-label="Footernavigatie">
+        <ul class="flex flex-wrap gap-x-7 gap-y-3 text-sm text-toned">
+          {links.map(([label, href]) => <li><a class="inline-flex min-h-11 items-center transition-colors hover:text-primary" href={href}>{label}</a></li>)}
         </ul>
       </nav>
     </div>
-
-    <div class="mt-10 border-t border-neutral-800 pt-6 text-sm text-neutral-400">
-      <p>© {year} Vibefusion. All rights reserved.</p>
+    <div class="mt-12 flex flex-col justify-between gap-3 border-t border-border-default pt-6 text-xs text-muted sm:flex-row">
+      <p>© {year} Vibefusion</p>
+      <p>Digitale ervaringen met karakter.</p>
     </div>
   </div>
 </footer>

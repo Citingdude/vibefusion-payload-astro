@@ -46,9 +46,9 @@ The homepage should follow this decision journey:
 
 ## Visual direction
 
-- The identity uses a distinctive, calm purple as the brand colour (`#6666cc`) with purple-tinted neutrals.
-- The visual system should feel editorial and considered: confident typography, generous whitespace, soft rounded shapes, and restrained brand-colour accents.
-- Headings use Alegreya; body copy uses Alegreya Sans.
+- The identity retains its distinctive purple (`#6666cc`) and symbol, paired with a lowercase sans-serif wordmark, white surfaces, and ink text. Interactive purple uses `#5858b8` for stronger text contrast.
+- The visual system should feel professional, clean, modern, and direct: confident typography, generous whitespace, precise grids, fine borders, small corner radii, and restrained brand-colour accents.
+- Headings and body copy use a native sans-serif stack (Helvetica Neue, Arial, sans-serif), avoiding font downloads. Use medium-weight headings with tight tracking and a shared fluid type scale.
 - Favour semantic design tokens (`primary`, `text-muted`, `bg-elevated`, etc.) over hard-coded palette values in components.
 
 ## Information architecture

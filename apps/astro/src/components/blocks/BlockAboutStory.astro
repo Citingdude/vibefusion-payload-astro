@@ -1,41 +1,27 @@
 ---
+import AppBrandPanel from '@/components/app/brand/AppBrandPanel.astro'
 import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
 ---
 
-<section class="bg-background py-16 sm:py-24 lg:py-28">
+<section class="bg-background section-space">
   <div class="container grid items-center gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-20">
     <div class="max-w-2xl">
       <AppEyebrow label="Waarom Vibefusion" />
-      <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+      <h2 class="mt-4 section-title text-highlighted">
         Digitaal werk is sterker als alles samenkomt.
       </h2>
-      <div class="mt-6 space-y-5 text-xl leading-relaxed text-toned">
+      <div class="mt-6 space-y-5 section-intro text-toned">
         <p>
           Een goed idee verliest kracht wanneer strategie, design en techniek los van elkaar worden behandeld. Daarom
           brengen we die disciplines vanaf het begin bij elkaar.
         </p>
         <p>
-          We zijn een klein digitaal studio. Dat betekent korte lijnen, aandacht voor het geheel en direct samenwerken
+          We zijn een kleine digitale studio. Dat betekent korte lijnen, aandacht voor het geheel en direct samenwerken
           met de mensen die je idee vormgeven en bouwen.
         </p>
       </div>
     </div>
 
-    <div
-      class="relative isolate min-h-96 overflow-hidden rounded-2xl bg-primary p-8 text-primary-foreground sm:p-10"
-      aria-hidden="true"
-    >
-      <div class="absolute -right-20 -bottom-24 -z-10 size-80 rounded-full border-[2rem] border-brand-400"></div>
-      <div class="absolute top-12 right-12 size-20 rotate-12 rounded-xl border border-brand-300"></div>
-      <p class="text-sm font-bold tracking-widest text-brand-200 uppercase">Klein team, groot perspectief</p>
-      <p class="mt-28 max-w-sm font-display text-4xl leading-none font-bold sm:text-5xl">
-        Aandacht voor het idee én ieder detail.
-      </p>
-      <div class="mt-8 flex gap-2">
-        <span class="h-2 w-16 rounded-full bg-brand-200"></span>
-        <span class="h-2 w-8 rounded-full bg-brand-400"></span>
-        <span class="h-2 w-12 rounded-full bg-brand-300"></span>
-      </div>
-    </div>
+    <AppBrandPanel caption="Aandacht maakt het verschil." label="Klein team, groot perspectief." />
   </div>
 </section>

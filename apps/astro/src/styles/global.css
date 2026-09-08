@@ -7,7 +7,9 @@
 
 @utility container {
   margin-inline: auto;
-  padding-inline: 2rem;
+  width: 100%;
+  max-width: 82rem;
+  padding-inline: clamp(1.25rem, 4vw, 4rem);
 }
 
 /* Semantic color utilities use distinct text and background roles. */
@@ -117,9 +119,9 @@
   --ui-info-700: #20547c;
 
   /* Semantic colour intents. */
-  --ui-primary: var(--ui-brand-600);
-  --ui-primary-hover: var(--ui-brand-700);
-  --ui-primary-active: var(--ui-brand-800);
+  --ui-primary: var(--ui-brand-700);
+  --ui-primary-hover: var(--ui-brand-800);
+  --ui-primary-active: var(--ui-brand-900);
   --ui-primary-subtle: var(--ui-brand-100);
   --ui-primary-muted: var(--ui-brand-200);
   --ui-primary-foreground: #ffffff;
@@ -148,7 +150,7 @@
   --ui-info-foreground: #ffffff;
 
   /* Neutral UI roles: these are the default choice for all components. */
-  --ui-bg: var(--ui-neutral-25);
+  --ui-bg: var(--ui-neutral-0);
   --ui-bg-muted: var(--ui-neutral-50);
   --ui-bg-elevated: var(--ui-neutral-0);
   --ui-bg-accented: var(--ui-neutral-100);
@@ -193,8 +195,8 @@
   /* Remove Tailwind's built-in palette; expose only project design tokens. */
   --color-*: initial;
 
-  --font-display: 'Alegreya', 'serif';
-  --font-body: 'Alegreya Sans', 'sans-serif';
+  --font-display: 'Helvetica Neue', 'Arial', sans-serif;
+  --font-body: 'Helvetica Neue', 'Arial', sans-serif;
 
   /* Palette utilities: bg-brand-600, text-neutral-700, etc. */
   --color-brand-50: var(--ui-brand-50);
@@ -292,11 +294,11 @@
 
   --radius-xs: 0.25rem;
   --radius-sm: 0.375rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-2xl: 2rem;
-  --radius-3xl: 3rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.625rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-3xl: 1.25rem;
 
   --shadow-xs: 0 1px 2px rgb(30 30 43 / 5%);
   --shadow-sm: 0 1px 3px rgb(30 30 43 / 8%), 0 1px 2px rgb(30 30 43 / 4%);
@@ -484,6 +486,7 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    scroll-padding-top: 6rem;
   }
 
   h1,
@@ -493,6 +496,8 @@
   h5,
   h6 {
     @apply font-display;
+    letter-spacing: -0.045em;
+    text-wrap: balance;
   }
 
   body {
@@ -501,10 +506,82 @@
 
   p {
     @apply max-w-prose;
+    text-wrap: pretty;
   }
 
   ::selection {
     color: var(--ui-primary-foreground);
     background-color: var(--ui-primary);
+  }
+}
+
+/* Shared composition: every block uses the same spacing and type scale. */
+@utility section-space {
+  padding-block: clamp(4.5rem, 8vw, 7.5rem);
+}
+
+@utility section-title {
+  font-size: clamp(2rem, 3.5vw, 3.25rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+@utility page-title {
+  font-size: clamp(2.75rem, 6.5vw, 6rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+}
+
+@utility card-title {
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+@utility section-intro {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.7;
+}
+
+@utility index-label {
+  font-family: ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+@layer base {
+  a, button, input, textarea, summary {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ui-ring);
+    outline-offset: 5px;
+  }
+
+  button, summary {
+    cursor: pointer;
+  }
+
+  [id] {
+    scroll-margin-top: 2rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+    ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) {
+      animation: none !important;
+    }
   }
 }

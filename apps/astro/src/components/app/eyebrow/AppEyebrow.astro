@@ -1,18 +1,17 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
-import IconVibeMark from '@/components/icons/IconVibeMark.astro'
-
 interface Props extends HTMLAttributes<'p'> {
   label: string
 }
-
 const { label, class: className, ...attributes } = Astro.props
 ---
 
-<p
-  class:list={['flex items-center gap-3 text-sm font-bold tracking-wide text-default uppercase', className]}
-  {...attributes}
->
-  <IconVibeMark class="w-8" />
+<p class:list={['eyebrow', className]} {...attributes}>
+  <span aria-hidden="true" class="eyebrow-line"></span>
   {label}
 </p>
+
+<style>
+  .eyebrow { display: flex; align-items: center; gap: 0.75rem; font-size: 0.6875rem; font-weight: 600; line-height: 1.6; letter-spacing: 0.12em; text-transform: uppercase; }
+  .eyebrow-line { width: 1.25rem; height: 1px; flex-shrink: 0; background: currentColor; }
+</style>

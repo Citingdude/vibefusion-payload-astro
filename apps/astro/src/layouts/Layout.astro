@@ -1,5 +1,4 @@
 ---
-import { Font } from 'astro:assets'
 import AppFooter from '@/components/app/footer/AppFooter.astro'
 import AppHeader from '@/components/app/header/AppHeader.astro'
 import '@/styles/global.css'
@@ -26,8 +25,7 @@ const {
       name="generator"
       content={Astro.generator}
     />
-    <Font cssVariable="--font-display" />
-    <Font cssVariable="--font-body" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta
       name="description"
@@ -35,10 +33,26 @@ const {
     />
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Ga naar inhoud</a>
     <AppHeader />
-    <main>
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <AppFooter />
   </body>
 </html>
+
+<style>
+  .skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.75rem 1rem;
+    background: var(--ui-bg-inverted);
+    color: var(--ui-text-inverted);
+    border-radius: var(--radius-md);
+    transform: translateY(-200%);
+  }
+  .skip-link:focus { transform: translateY(0); }
+</style>

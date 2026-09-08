@@ -1,4 +1,5 @@
 ---
+import AppBrandPanel from '@/components/app/brand/AppBrandPanel.astro'
 import AppButton from '@/components/app/button/AppButton.astro'
 import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
 import IconArrowRight from '@/components/icons/IconArrowRight.astro'
@@ -20,93 +21,33 @@ const {
 } = Astro.props
 ---
 
-<section class="relative isolate overflow-hidden bg-background py-16 sm:py-24 lg:py-32">
-  <div
-    class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-full bg-[radial-gradient(circle_at_78%_28%,var(--ui-brand-100),transparent_27rem)]"
-  >
-  </div>
-  <div
-    class="pointer-events-none absolute right-[6%] top-16 -z-10 size-72 rounded-full border border-brand-200/70 sm:size-96 bg-brand/5"
-  >
-  </div>
-
-  <div class="container grid items-center gap-14 lg:grid-cols-[1fr_0.86fr] lg:gap-20">
-    <div class="max-w-2xl">
-      <AppEyebrow
-        label={eyebrow}
-        class="mb-5"
-      />
-      <h1 class="max-w-xl text-5xl leading-none font-bold text-highlighted sm:text-6xl lg:text-7xl">
-        {title}
-      </h1>
-      <p class="mt-6 text-xl leading-relaxed text-toned sm:text-2xl">
-        {description}
-      </p>
-
-      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-        <AppButton
-          href={primaryAction.href}
-          size="lg"
-        >
-          {primaryAction.label}
-          <IconArrowRight slot="icon-right" />
-        </AppButton>
-        <AppButton
-          href={secondaryAction.href}
-          size="lg"
-          variant="secondary"
-        >
-          {secondaryAction.label}
-        </AppButton>
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <AppEyebrow label={eyebrow} class="text-muted" />
+        <h1 class="page-title mt-7 text-highlighted">{title}</h1>
+        <p class="section-intro mt-7 max-w-lg text-muted">{description}</p>
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <AppButton href={primaryAction.href} size="lg">
+            {primaryAction.label}<IconArrowRight slot="icon-right" />
+          </AppButton>
+          <AppButton href={secondaryAction.href} size="lg" variant="ghost">{secondaryAction.label}</AppButton>
+        </div>
       </div>
-
-      <p class="mt-8 flex items-center gap-2 text-base text-muted">
-        <span
-          class="flex -space-x-2"
-          aria-hidden="true"
-        >
-          <span class="size-7 rounded-full border-2 border-default bg-brand-300"></span>
-          <span class="size-7 rounded-full border-2 border-default bg-brand-500"></span>
-          <span class="size-7 rounded-full border-2 border-default bg-neutral-700"></span>
-        </span>
-        Een klein team voor grote ideeën.
-      </p>
+      <AppBrandPanel />
     </div>
-
-    <div class="relative mx-auto w-full max-w-lg lg:max-w-none">
-      <div class="absolute -inset-5 -z-10 rotate-3 rounded-3xl bg-brand-200/60"></div>
-      <div class="overflow-hidden rounded-2xl border border-border-default bg-elevated p-4 shadow-xl sm:p-6">
-        <div class="flex items-center justify-between border-b border-border-default pb-4">
-          <span class="font-display text-lg font-bold text-highlighted">Vibefusion</span>
-          <span class="rounded-full bg-success-subtle px-3 py-1 text-xs font-bold text-success">Beschikbaar</span>
-        </div>
-        <div class="mt-6 rounded-xl bg-brand-950 p-6 text-primary-foreground sm:p-8">
-          <p class="text-sm font-bold tracking-widest text-brand-300 uppercase">Gemaakt om te groeien</p>
-          <p class="mt-10 max-w-xs font-display text-3xl leading-tight font-bold sm:text-4xl">
-            Een online thuisbasis waar je trots op bent.
-          </p>
-          <div
-            class="mt-8 flex items-end gap-2"
-            aria-hidden="true"
-          >
-            <span class="h-8 flex-1 rounded-t-sm bg-brand-300"></span>
-            <span class="h-14 flex-1 rounded-t-sm bg-brand-400"></span>
-            <span class="h-10 flex-1 rounded-t-sm bg-brand-500"></span>
-            <span class="h-20 flex-1 rounded-t-sm bg-brand-200"></span>
-            <span class="h-16 flex-1 rounded-t-sm bg-brand-400"></span>
-          </div>
-        </div>
-        <div class="mt-4 grid grid-cols-2 gap-4">
-          <div class="rounded-xl bg-accented p-4">
-            <p class="text-sm text-muted">Van idee tot live</p>
-            <p class="mt-1 font-display text-2xl font-bold text-highlighted">Samen</p>
-          </div>
-          <div class="rounded-xl bg-primary p-4 text-primary-foreground">
-            <p class="text-sm text-brand-100">Focus op</p>
-            <p class="mt-1 font-display text-2xl font-bold">Impact</p>
-          </div>
-        </div>
-      </div>
+    <div class="hero-baseline">
+      <p>Een klein team voor grote ideeën.</p>
+      <p class="flex gap-5"><span>Strategie</span><span>Design</span><span>Techniek</span></p>
     </div>
   </div>
 </section>
+
+<style>
+  .hero { padding-top: clamp(3.5rem, 6vw, 6rem); }
+  .hero-grid { display: grid; align-items: center; gap: 3rem; }
+  .hero-copy h1 { max-width: 11ch; }
+  .hero-baseline { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: clamp(3rem, 6vw, 5rem); padding-block: 1.5rem; border-top: 1px solid var(--ui-border); font-size: 0.6875rem; letter-spacing: 0.025em; color: var(--ui-text-muted); }
+  @media (min-width: 64rem) { .hero-grid { grid-template-columns: 1.2fr 0.8fr; gap: 5rem; } }
+</style>

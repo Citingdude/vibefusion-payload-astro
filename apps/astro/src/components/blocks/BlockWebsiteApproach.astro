@@ -25,15 +25,15 @@ const pillars = [
 
 <section
   id="aanpak"
-  class="scroll-mt-8 bg-background py-16 sm:py-24 lg:py-28"
+  class="scroll-mt-8 bg-background section-space"
 >
   <div class="container">
     <div class="max-w-3xl">
       <AppEyebrow label="Eén geheel, van idee tot livegang" />
-      <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl lg:text-6xl">
+      <h2 class="mt-4 section-title text-highlighted">
         Strategie, design en techniek aan dezelfde tafel.
       </h2>
-      <p class="mt-5 max-w-2xl text-xl leading-relaxed text-toned">
+      <p class="mt-5 max-w-2xl section-intro text-toned">
         Geen losse schakels of overdrachten. We nemen elke beslissing vanuit hetzelfde doel: een website die klopt voor
         je merk én je bezoekers.
       </p>
@@ -44,17 +44,17 @@ const pillars = [
         pillars.map((pillar, index) => (
           <li
             class:list={[
-              'relative overflow-hidden rounded-2xl border p-6 sm:p-8',
+              'relative overflow-hidden rounded-lg border p-6 sm:p-8',
               index === 1
                 ? 'border-brand-700 bg-primary text-primary-foreground'
                 : 'border-border-default bg-elevated text-default',
             ]}
           >
-            <span class:list={['font-display text-lg font-bold', index === 1 ? 'text-brand-200' : 'text-primary']}>
+            <span class:list={['index-label', index === 1 ? 'text-brand-200' : 'text-primary']}>
               {pillar.number}
             </span>
-            <h3 class="mt-10 font-display text-3xl leading-tight font-bold">{pillar.title}</h3>
-            <p class:list={['mt-4 text-lg leading-relaxed', index === 1 ? 'text-brand-100' : 'text-muted']}>
+            <h3 class="mt-10 card-title">{pillar.title}</h3>
+            <p class:list={['mt-4 text-base leading-relaxed', index === 1 ? 'text-brand-100' : 'text-muted']}>
               {pillar.description}
             </p>
             <ul

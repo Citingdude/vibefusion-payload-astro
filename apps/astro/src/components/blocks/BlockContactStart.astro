@@ -11,33 +11,33 @@ const prompts = [
 
 <section
   id="project"
-  class="scroll-mt-8 bg-background py-16 sm:py-24 lg:py-28"
+  class="scroll-mt-8 bg-background section-space"
 >
   <div class="container grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
     <div class="max-w-md">
       <AppEyebrow label="Een goed begin" />
-      <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+      <h2 class="mt-4 section-title text-highlighted">
         Je hoeft nog niet alles te weten.
       </h2>
-      <p class="mt-5 text-xl leading-relaxed text-toned">
+      <p class="mt-5 section-intro text-toned">
         Een eerste idee, een bestaande uitdaging of een duidelijke ambitie is genoeg. Wij helpen je om van daaruit de
         juiste vraag scherp te krijgen.
       </p>
     </div>
 
-    <div class="rounded-2xl border border-border-default bg-elevated p-6 sm:p-8 lg:p-10">
+    <div class="rounded-lg border border-border-default bg-elevated p-6 sm:p-8 lg:p-10">
       <p class="text-sm font-bold tracking-widest text-primary uppercase">Handig om alvast te delen</p>
       <ul class="mt-7 divide-y divide-border-default border-y border-border-default">
         {
           prompts.map((prompt, index) => (
             <li class="grid grid-cols-[2.5rem_1fr] gap-3 py-5">
-              <span class="font-display text-lg font-bold text-primary">0{index + 1}</span>
+              <span class="index-label text-primary">0{index + 1}</span>
               <span class="text-lg text-toned">{prompt}</span>
             </li>
           ))
         }
       </ul>
-      <p class="mt-7 rounded-xl bg-brand-100 p-5 text-lg leading-relaxed text-toned">
+      <p class="mt-7 rounded-md bg-muted p-5 text-base leading-relaxed text-toned">
         De directe contactmogelijkheid wordt hier aangesloten zodra het gewenste kanaal is bevestigd. Zo publiceren we
         geen onbevestigd adres en raakt je bericht niet verloren.
       </p>
