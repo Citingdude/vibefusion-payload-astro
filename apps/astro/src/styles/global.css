@@ -80,20 +80,20 @@
   --ui-brand-900: #3e3e85;
   --ui-brand-950: #29295a;
 
-  /* Neutral palette — slightly purple-tinted to belong with the brand. */
-  --ui-neutral-0: #ffffff;
-  --ui-neutral-25: #fcfcfe;
-  --ui-neutral-50: #f8f8fb;
-  --ui-neutral-100: #f1f1f6;
-  --ui-neutral-200: #dedee8;
-  --ui-neutral-300: #c7c7d5;
-  --ui-neutral-400: #a4a4b6;
-  --ui-neutral-500: #818195;
-  --ui-neutral-600: #656579;
-  --ui-neutral-700: #4a4a5d;
-  --ui-neutral-800: #30303f;
-  --ui-neutral-900: #1e1e2b;
-  --ui-neutral-950: #12121b;
+  /* Warm neutral palette — a quiet, paper-like base for the purple brand. */
+  --ui-neutral-0: #fffdf8;
+  --ui-neutral-25: #faf7f1;
+  --ui-neutral-50: #f4f0e8;
+  --ui-neutral-100: #ebe4d8;
+  --ui-neutral-200: #ddd4c5;
+  --ui-neutral-300: #cbbfad;
+  --ui-neutral-400: #a99d8e;
+  --ui-neutral-500: #81776c;
+  --ui-neutral-600: #655d55;
+  --ui-neutral-700: #4b443d;
+  --ui-neutral-800: #332f2b;
+  --ui-neutral-900: #24211e;
+  --ui-neutral-950: #181614;
 
   --ui-success-50: #edfaf3;
   --ui-success-100: #d5f3e3;
@@ -298,11 +298,11 @@
   --radius-2xl: 2rem;
   --radius-3xl: 3rem;
 
-  --shadow-xs: 0 1px 2px rgb(30 30 43 / 5%);
-  --shadow-sm: 0 1px 3px rgb(30 30 43 / 8%), 0 1px 2px rgb(30 30 43 / 4%);
-  --shadow-md: 0 4px 8px rgb(30 30 43 / 7%), 0 2px 4px rgb(30 30 43 / 5%);
-  --shadow-lg: 0 12px 24px rgb(30 30 43 / 9%), 0 4px 8px rgb(30 30 43 / 5%);
-  --shadow-xl: 0 20px 40px rgb(30 30 43 / 12%), 0 8px 16px rgb(30 30 43 / 6%);
+  --shadow-xs: 0 1px 2px rgb(36 33 30 / 4%);
+  --shadow-sm: 0 1px 3px rgb(36 33 30 / 7%), 0 1px 2px rgb(36 33 30 / 3%);
+  --shadow-md: 0 8px 20px rgb(36 33 30 / 6%), 0 2px 5px rgb(36 33 30 / 4%);
+  --shadow-lg: 0 18px 36px rgb(36 33 30 / 8%), 0 5px 12px rgb(36 33 30 / 4%);
+  --shadow-xl: 0 28px 56px rgb(36 33 30 / 11%), 0 8px 20px rgb(36 33 30 / 5%);
   --shadow-card: var(--shadow-md);
   --shadow-focus: 0 0 0 3px rgb(102 102 204 / 28%);
 
@@ -497,6 +497,7 @@
 
   body {
     @apply bg-background font-body text-default antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
   }
 
   p {

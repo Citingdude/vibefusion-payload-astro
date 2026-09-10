@@ -46,7 +46,7 @@ const pillars = [
             class:list={[
               'relative overflow-hidden rounded-2xl border p-6 sm:p-8',
               index === 1
-                ? 'border-brand-700 bg-primary text-primary-foreground'
+                ? 'border-neutral-900 bg-neutral-900 text-primary-foreground'
                 : 'border-border-default bg-elevated text-default',
             ]}
           >
@@ -54,11 +54,11 @@ const pillars = [
               {pillar.number}
             </span>
             <h3 class="mt-10 font-display text-3xl leading-tight font-bold">{pillar.title}</h3>
-            <p class:list={['mt-4 text-lg leading-relaxed', index === 1 ? 'text-brand-100' : 'text-muted']}>
+            <p class:list={['mt-4 text-lg leading-relaxed', index === 1 ? 'text-neutral-300' : 'text-muted']}>
               {pillar.description}
             </p>
             <ul
-              class:list={['mt-7 space-y-3 border-t pt-6', index === 1 ? 'border-brand-500' : 'border-border-default']}
+              class:list={['mt-7 space-y-3 border-t pt-6', index === 1 ? 'border-neutral-700' : 'border-border-default']}
             >
               {pillar.details.map((detail) => (
                 <li class="flex items-center gap-3">

@@ -16,13 +16,13 @@ const { eyebrow, title, description, primaryAction, secondaryAction, variant = '
 
 const sectionClasses = {
   light: 'bg-background text-default',
-  brand: 'bg-primary text-primary-foreground',
+  brand: 'bg-neutral-900 text-primary-foreground',
   dark: 'bg-neutral-950 text-neutral-0',
 }
 
 const descriptionClasses = {
   light: 'text-toned',
-  brand: 'text-brand-100',
+  brand: 'text-neutral-300',
   dark: 'text-neutral-300',
 }
 ---
@@ -49,7 +49,7 @@ const descriptionClasses = {
     <div class="max-w-4xl">
       <AppEyebrow
         label={eyebrow}
-        class:list={['mb-5', variant === 'brand' && 'text-brand-100', variant === 'dark' && 'text-brand-300']}
+        class:list={['mb-5', variant === 'brand' && 'text-brand-200', variant === 'dark' && 'text-brand-300']}
       />
       <h1 class="max-w-3xl font-display text-5xl leading-[0.95] font-bold sm:text-6xl lg:text-7xl">
         {title}
