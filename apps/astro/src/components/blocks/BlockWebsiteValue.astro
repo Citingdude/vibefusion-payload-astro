@@ -20,15 +20,15 @@ const outcomes = [
 ]
 ---
 
-<section class="border-y border-border-default bg-elevated py-16 sm:py-24 lg:py-28">
+<section class="border-y border-border bg-surface py-16 sm:py-24 lg:py-28">
   <div class="container">
     <div class="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20">
       <div class="max-w-lg">
         <AppEyebrow label="Meer dan een mooi visitekaartje" />
-        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-foreground-strong sm:text-5xl">
           Een website die werkt voor je bedrijf.
         </h2>
-        <p class="mt-5 text-xl leading-relaxed text-toned">
+        <p class="mt-5 text-xl leading-relaxed text-foreground-subtle">
           Je website moet niet alleen goed ogen. Hij moet de juiste mensen meenemen, vragen beantwoorden en vertrouwen
           opbouwen—ook wanneer jij niet aan het werk bent.
         </p>
@@ -37,11 +37,11 @@ const outcomes = [
       <ol class="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
         {
           outcomes.map((outcome) => (
-            <li class="group grid gap-4 rounded-xl border border-border-default bg-background p-5 transition-colors hover:border-brand-300 sm:block lg:grid lg:grid-cols-[3rem_1fr] lg:p-6">
+            <li class="group grid gap-4 rounded-xl border border-border bg-background p-5 transition-colors hover:border-primary-muted sm:block lg:grid lg:grid-cols-[3rem_1fr] lg:p-6">
               <span class="font-display text-lg font-bold text-primary">{outcome.number}</span>
               <div>
-                <h3 class="font-display text-2xl font-bold text-highlighted">{outcome.title}</h3>
-                <p class="mt-2 text-lg leading-relaxed text-muted">{outcome.description}</p>
+                <h3 class="font-display text-2xl font-bold text-foreground-strong">{outcome.title}</h3>
+                <p class="mt-2 text-lg leading-relaxed text-muted-foreground">{outcome.description}</p>
               </div>
             </li>
           ))

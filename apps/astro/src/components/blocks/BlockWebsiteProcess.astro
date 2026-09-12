@@ -25,7 +25,7 @@ const steps = [
 ]
 ---
 
-<section class="overflow-hidden bg-neutral-950 py-16 text-neutral-0 sm:py-24 lg:py-28">
+<section class="overflow-hidden bg-inverse-background py-16 text-inverse-foreground sm:py-24 lg:py-28">
   <div class="container">
     <div class="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:gap-20">
       <div class="max-w-md">
@@ -36,22 +36,22 @@ const steps = [
         <h2 class="mt-4 font-display text-4xl leading-none font-bold sm:text-5xl">
           Duidelijk van eerste gesprek tot livegang.
         </h2>
-        <p class="mt-5 text-xl leading-relaxed text-neutral-300">
+        <p class="mt-5 text-xl leading-relaxed text-inverse-muted-foreground">
           Je weet waar we zijn, welke keuzes voorliggen en wat de volgende stap is. We maken het proces samen
           overzichtelijk.
         </p>
       </div>
 
-      <ol class="relative border-l border-neutral-700 pl-7 sm:pl-10">
+      <ol class="relative border-l border-inverse-border pl-7 sm:pl-10">
         {
           steps.map((step, index) => (
             <li class:list={['relative pb-9', index === steps.length - 1 && 'pb-0']}>
-              <span class="absolute top-1 -left-[2.15rem] flex size-4 items-center justify-center rounded-full bg-neutral-950 ring-1 ring-brand-400 sm:-left-[2.65rem]">
+              <span class="absolute top-1 -left-[2.15rem] flex size-4 items-center justify-center rounded-full bg-inverse-background ring-1 ring-brand-400 sm:-left-[2.65rem]">
                 <span class="size-1.5 rounded-full bg-brand-300" />
               </span>
               <p class="text-sm font-bold tracking-widest text-brand-300 uppercase">{step.label}</p>
               <h3 class="mt-2 font-display text-2xl font-bold sm:text-3xl">{step.title}</h3>
-              <p class="mt-2 max-w-xl text-lg leading-relaxed text-neutral-300">{step.description}</p>
+              <p class="mt-2 max-w-xl text-lg leading-relaxed text-inverse-muted-foreground">{step.description}</p>
             </li>
           ))
         }

@@ -52,27 +52,27 @@ const steps = [
     <div class="grid gap-12 lg:grid-cols-[0.68fr_1.32fr] lg:gap-20">
       <div class="max-w-md lg:sticky lg:top-8 lg:self-start">
         <AppEyebrow label="Ons proces" />
-        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl">
+        <h2 class="mt-4 font-display text-4xl leading-none font-bold text-foreground-strong sm:text-5xl">
           Ruimte voor ideeën. Houvast in elke stap.
         </h2>
-        <p class="mt-5 text-xl leading-relaxed text-toned">
+        <p class="mt-5 text-xl leading-relaxed text-foreground-subtle">
           Creatief werk hoeft niet vaag te zijn. We werken in overzichtelijke fases, met duidelijke beslismomenten en
           ruimte om samen te scherpen.
         </p>
       </div>
 
-      <ol class="divide-y divide-border-default border-y border-border-default">
+      <ol class="divide-y divide-border border-y border-border">
         {
           steps.map((step) => (
             <li class="grid gap-5 py-8 sm:grid-cols-[4rem_1fr] sm:py-10">
               <span class="font-display text-2xl font-bold text-primary">{step.number}</span>
               <div>
-                <p class="text-sm font-bold tracking-widest text-muted uppercase">{step.eyebrow}</p>
-                <h3 class="mt-2 font-display text-3xl leading-tight font-bold text-highlighted sm:text-4xl">
+                <p class="text-sm font-bold tracking-widest text-muted-foreground uppercase">{step.eyebrow}</p>
+                <h3 class="mt-2 font-display text-3xl leading-tight font-bold text-foreground-strong sm:text-4xl">
                   {step.title}
                 </h3>
-                <p class="mt-3 max-w-xl text-lg leading-relaxed text-muted">{step.description}</p>
-                <p class="mt-5 flex items-start gap-3 font-bold text-toned">
+                <p class="mt-3 max-w-xl text-lg leading-relaxed text-muted-foreground">{step.description}</p>
+                <p class="mt-5 flex items-start gap-3 font-bold text-foreground-subtle">
                   <span class="mt-2 size-1.5 shrink-0 rounded-full bg-primary" />
                   {step.output}
                 </p>

@@ -30,10 +30,10 @@ const pillars = [
   <div class="container">
     <div class="max-w-3xl">
       <AppEyebrow label="Eén geheel, van idee tot livegang" />
-      <h2 class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl lg:text-6xl">
+      <h2 class="mt-4 font-display text-4xl leading-none font-bold text-foreground-strong sm:text-5xl lg:text-6xl">
         Strategie, design en techniek aan dezelfde tafel.
       </h2>
-      <p class="mt-5 max-w-2xl text-xl leading-relaxed text-toned">
+      <p class="mt-5 max-w-2xl text-xl leading-relaxed text-foreground-subtle">
         Geen losse schakels of overdrachten. We nemen elke beslissing vanuit hetzelfde doel: een website die klopt voor
         je merk én je bezoekers.
       </p>
@@ -46,20 +46,18 @@ const pillars = [
             class:list={[
               'relative overflow-hidden rounded-2xl border p-6 sm:p-8',
               index === 1
-                ? 'border-brand-700 bg-primary text-primary-foreground'
-                : 'border-border-default bg-elevated text-default',
+                ? 'border-primary-active bg-primary text-primary-foreground'
+                : 'border-border bg-surface text-foreground',
             ]}
           >
             <span class:list={['font-display text-lg font-bold', index === 1 ? 'text-brand-200' : 'text-primary']}>
               {pillar.number}
             </span>
             <h3 class="mt-10 font-display text-3xl leading-tight font-bold">{pillar.title}</h3>
-            <p class:list={['mt-4 text-lg leading-relaxed', index === 1 ? 'text-brand-100' : 'text-muted']}>
+            <p class:list={['mt-4 text-lg leading-relaxed', index === 1 ? 'text-brand-100' : 'text-muted-foreground']}>
               {pillar.description}
             </p>
-            <ul
-              class:list={['mt-7 space-y-3 border-t pt-6', index === 1 ? 'border-brand-500' : 'border-border-default']}
-            >
+            <ul class:list={['mt-7 space-y-3 border-t pt-6', index === 1 ? 'border-brand-500' : 'border-border']}>
               {pillar.details.map((detail) => (
                 <li class="flex items-center gap-3">
                   <span class:list={['size-1.5 rounded-full', index === 1 ? 'bg-brand-200' : 'bg-primary']} />

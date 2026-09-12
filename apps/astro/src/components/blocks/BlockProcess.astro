@@ -30,17 +30,17 @@ const phases = [
   class="bg-background pb-16 sm:pb-24 lg:pb-28"
 >
   <div class="container">
-    <div class="rounded-2xl border border-border-default bg-elevated p-6 sm:p-10 lg:p-16">
+    <div class="rounded-2xl border border-border bg-surface p-6 sm:p-10 lg:p-16">
       <div class="grid items-end gap-8 lg:grid-cols-[1fr_auto] lg:gap-16">
         <div class="max-w-2xl">
           <AppEyebrow label="Onze werkwijze" />
           <h2
             id="werkwijze-title"
-            class="mt-4 font-display text-4xl leading-none font-bold text-highlighted sm:text-5xl"
+            class="mt-4 font-display text-4xl leading-none font-bold text-foreground-strong sm:text-5xl"
           >
             Van eerste gesprek tot iets dat klopt.
           </h2>
-          <p class="mt-5 text-xl leading-relaxed text-toned">
+          <p class="mt-5 text-xl leading-relaxed text-foreground-subtle">
             Een goed resultaat begint met een helder proces. Met korte lijnen en ruimte voor jouw input weet je steeds
             waar we staan en wat de volgende stap is.
           </p>
@@ -57,16 +57,16 @@ const phases = [
       <ol class="mt-12 grid gap-8 lg:grid-cols-3 lg:gap-10">
         {
           phases.map((phase, index) => (
-            <li class="border-t border-border-default pt-6">
+            <li class="border-t border-border pt-6">
               <span
                 class="flex size-12 items-center justify-center rounded-full bg-primary-subtle font-display text-xl font-bold text-primary"
                 aria-hidden="true"
               >
                 0{index + 1}
               </span>
-              <p class="mt-6 text-sm font-bold tracking-wide text-muted uppercase">{phase.label}</p>
-              <h3 class="mt-3 font-display text-3xl leading-tight font-bold text-highlighted">{phase.title}</h3>
-              <p class="mt-4 text-lg leading-relaxed text-toned">{phase.description}</p>
+              <p class="mt-6 text-sm font-bold tracking-wide text-muted-foreground uppercase">{phase.label}</p>
+              <h3 class="mt-3 font-display text-3xl leading-tight font-bold text-foreground-strong">{phase.title}</h3>
+              <p class="mt-4 text-lg leading-relaxed text-foreground-subtle">{phase.description}</p>
             </li>
           ))
         }

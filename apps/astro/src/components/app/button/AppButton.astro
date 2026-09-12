@@ -35,7 +35,7 @@ const hasIconLeft = Astro.slots.has('icon-left')
 const hasIconRight = Astro.slots.has('icon-right')
 
 const buttonClasses = [
-  'inline-flex w-full items-center justify-center rounded-br-md rounded-tl-md font-display font-bold duration-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus disabled:pointer-events-none disabled:opacity-50 sm:w-fit transition-all ease-out active:scale-98',
+  'inline-flex w-full items-center justify-center rounded-br-md rounded-tl-md font-display font-bold transition-all duration-instant ease-standard focus-ring disabled:pointer-events-none disabled:opacity-50 sm:w-fit active:scale-98',
   (hasIconLeft || hasIconRight) && 'gap-2',
   {
     sm: 'px-4 py-2 text-sm',
@@ -44,9 +44,9 @@ const buttonClasses = [
   }[size],
   {
     primary: 'bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active',
-    secondary: 'border border-border-default border-primary bg-primary/10 text-default hover:bg-primary/5',
-    tertiary: 'bg-neutral-950 text-neutral-0 hover:bg-neutral-900 active:bg-neutral-800',
-    outline: 'border border-primary text-default hover:bg-primary-subtle active:bg-primary-muted',
+    secondary: 'border border-primary bg-primary-subtle text-foreground hover:bg-primary-muted',
+    tertiary: 'bg-inverse-background text-inverse-foreground hover:bg-inverse-surface active:bg-inverse-border',
+    outline: 'border border-primary text-foreground hover:bg-primary-subtle active:bg-primary-muted',
     ghost: 'text-primary hover:bg-primary-subtle active:bg-primary-muted',
   }[variant],
 ]

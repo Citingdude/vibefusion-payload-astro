@@ -5,7 +5,7 @@ import IconMenu from '@/components/icons/IconMenu.astro'
 ---
 
 <header
-  class="border-b border-border-default bg-background py-2"
+  class="border-b border-border bg-background py-2"
   data-header
 >
   <div class="container flex items-center justify-between">
@@ -16,7 +16,7 @@ import IconMenu from '@/components/icons/IconMenu.astro'
     </div>
 
     <button
-      class="inline-flex size-11 items-center justify-center rounded-md text-default transition-colors hover:bg-primary-subtle focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus lg:hidden"
+      class="inline-flex size-11 items-center justify-center rounded-md text-foreground transition-colors hover:bg-primary-subtle focus-ring lg:hidden"
       type="button"
       aria-expanded="false"
       aria-controls="mobile-navigation"
@@ -29,7 +29,7 @@ import IconMenu from '@/components/icons/IconMenu.astro'
 
   <div
     id="mobile-navigation"
-    class="hidden border-t border-border-default lg:hidden"
+    class="hidden border-t border-border lg:hidden"
     data-mobile-menu
   >
     <div class="container py-5">

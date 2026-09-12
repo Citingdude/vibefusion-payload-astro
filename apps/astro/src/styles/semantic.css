@@ -1,0 +1,108 @@
+/* Component-facing colour roles. A dark theme remaps roles, not components. */
+:root {
+  color-scheme: light;
+
+  --semantic-background: var(--primitive-neutral-25);
+  --semantic-surface: var(--primitive-neutral-0);
+  --semantic-surface-muted: var(--primitive-neutral-50);
+  --semantic-surface-accent: var(--primitive-neutral-100);
+  --semantic-foreground: var(--primitive-neutral-900);
+  --semantic-foreground-strong: var(--primitive-neutral-950);
+  --semantic-foreground-subtle: var(--primitive-neutral-700);
+  --semantic-muted-foreground: var(--primitive-neutral-600);
+  --semantic-border: var(--primitive-neutral-200);
+  --semantic-border-strong: var(--primitive-neutral-300);
+  --semantic-ring: var(--primitive-brand-600);
+
+  --semantic-primary: var(--primitive-brand-600);
+  --semantic-primary-hover: var(--primitive-brand-700);
+  --semantic-primary-active: var(--primitive-brand-800);
+  --semantic-primary-subtle: var(--primitive-brand-100);
+  --semantic-primary-muted: var(--primitive-brand-200);
+  --semantic-primary-foreground: var(--primitive-neutral-0);
+  --semantic-secondary: var(--primitive-neutral-700);
+  --semantic-secondary-hover: var(--primitive-neutral-800);
+  --semantic-secondary-active: var(--primitive-neutral-900);
+  --semantic-secondary-foreground: var(--primitive-neutral-0);
+
+  --semantic-success: var(--primitive-success-600);
+  --semantic-success-subtle: var(--primitive-success-50);
+  --semantic-success-foreground: var(--primitive-neutral-0);
+  --semantic-warning: var(--primitive-warning-600);
+  --semantic-warning-subtle: var(--primitive-warning-50);
+  --semantic-warning-foreground: var(--primitive-neutral-0);
+  --semantic-danger: var(--primitive-danger-600);
+  --semantic-danger-subtle: var(--primitive-danger-50);
+  --semantic-danger-foreground: var(--primitive-neutral-0);
+  --semantic-info: var(--primitive-info-600);
+  --semantic-info-subtle: var(--primitive-info-50);
+  --semantic-info-foreground: var(--primitive-neutral-0);
+
+  --semantic-inverse-background: var(--primitive-neutral-950);
+  --semantic-inverse-surface: var(--primitive-neutral-900);
+  --semantic-inverse-foreground: var(--primitive-neutral-0);
+  --semantic-inverse-muted-foreground: var(--primitive-neutral-300);
+  --semantic-inverse-border: var(--primitive-neutral-800);
+}
+
+:root.dark,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --semantic-background: var(--primitive-neutral-950);
+  --semantic-surface: var(--primitive-neutral-900);
+  --semantic-surface-muted: var(--primitive-neutral-900);
+  --semantic-surface-accent: var(--primitive-neutral-800);
+  --semantic-foreground: var(--primitive-neutral-50);
+  --semantic-foreground-strong: var(--primitive-neutral-0);
+  --semantic-foreground-subtle: var(--primitive-neutral-300);
+  --semantic-muted-foreground: var(--primitive-neutral-400);
+  --semantic-border: var(--primitive-neutral-800);
+  --semantic-border-strong: var(--primitive-neutral-700);
+  --semantic-ring: var(--primitive-brand-400);
+}
+
+@theme {
+  --color-background: var(--semantic-background);
+  --color-surface: var(--semantic-surface);
+  --color-surface-muted: var(--semantic-surface-muted);
+  --color-surface-accent: var(--semantic-surface-accent);
+  --color-foreground: var(--semantic-foreground);
+  --color-foreground-strong: var(--semantic-foreground-strong);
+  --color-foreground-subtle: var(--semantic-foreground-subtle);
+  --color-muted: var(--semantic-surface-muted);
+  --color-muted-foreground: var(--semantic-muted-foreground);
+  --color-border: var(--semantic-border);
+  --color-border-strong: var(--semantic-border-strong);
+  --color-ring: var(--semantic-ring);
+
+  --color-primary: var(--semantic-primary);
+  --color-primary-hover: var(--semantic-primary-hover);
+  --color-primary-active: var(--semantic-primary-active);
+  --color-primary-subtle: var(--semantic-primary-subtle);
+  --color-primary-muted: var(--semantic-primary-muted);
+  --color-primary-foreground: var(--semantic-primary-foreground);
+  --color-secondary: var(--semantic-secondary);
+  --color-secondary-hover: var(--semantic-secondary-hover);
+  --color-secondary-active: var(--semantic-secondary-active);
+  --color-secondary-foreground: var(--semantic-secondary-foreground);
+
+  --color-success: var(--semantic-success);
+  --color-success-subtle: var(--semantic-success-subtle);
+  --color-success-foreground: var(--semantic-success-foreground);
+  --color-warning: var(--semantic-warning);
+  --color-warning-subtle: var(--semantic-warning-subtle);
+  --color-warning-foreground: var(--semantic-warning-foreground);
+  --color-danger: var(--semantic-danger);
+  --color-danger-subtle: var(--semantic-danger-subtle);
+  --color-danger-foreground: var(--semantic-danger-foreground);
+  --color-info: var(--semantic-info);
+  --color-info-subtle: var(--semantic-info-subtle);
+  --color-info-foreground: var(--semantic-info-foreground);
+
+  --color-inverse-background: var(--semantic-inverse-background);
+  --color-inverse-surface: var(--semantic-inverse-surface);
+  --color-inverse-foreground: var(--semantic-inverse-foreground);
+  --color-inverse-muted-foreground: var(--semantic-inverse-muted-foreground);
+  --color-inverse-border: var(--semantic-inverse-border);
+}

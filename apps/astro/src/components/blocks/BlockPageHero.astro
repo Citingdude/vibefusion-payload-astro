@@ -15,15 +15,15 @@ interface Props {
 const { eyebrow, title, description, primaryAction, secondaryAction, variant = 'light' } = Astro.props
 
 const sectionClasses = {
-  light: 'bg-background text-default',
+  light: 'bg-background text-foreground',
   brand: 'bg-primary text-primary-foreground',
-  dark: 'bg-neutral-950 text-neutral-0',
+  dark: 'bg-inverse-background text-inverse-foreground',
 }
 
 const descriptionClasses = {
-  light: 'text-toned',
+  light: 'text-foreground-subtle',
   brand: 'text-brand-100',
-  dark: 'text-neutral-300',
+  dark: 'text-inverse-muted-foreground',
 }
 ---
 
@@ -76,7 +76,11 @@ const descriptionClasses = {
                 href={secondaryAction.href}
                 size="lg"
                 variant={variant === 'light' ? 'secondary' : 'outline'}
-                class={variant !== 'light' ? 'border-current text-inverted hover:bg-neutral-0/10' : undefined}
+                class={
+                  variant !== 'light'
+                    ? 'border-current text-inverse-foreground hover:bg-inverse-foreground/10'
+                    : undefined
+                }
               >
                 {secondaryAction.label}
               </AppButton>

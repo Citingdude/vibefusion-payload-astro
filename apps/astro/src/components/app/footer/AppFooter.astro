@@ -4,44 +4,44 @@ import AppLogo from '@/components/app/logo/AppLogo.astro'
 const year = new Date().getFullYear()
 ---
 
-<footer class="bg-neutral-950 text-neutral-0">
+<footer class="bg-inverse-background text-inverse-foreground">
   <div class="container py-12 sm:py-16">
     <div class="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
       <AppLogo variant="light" />
 
       <nav aria-label="Footer navigation">
-        <ul class="flex flex-wrap gap-x-6 gap-y-3 text-lg text-neutral-300">
+        <ul class="flex flex-wrap gap-x-6 gap-y-3 text-lg text-inverse-muted-foreground">
           <li>
             <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
+              class="transition-colors hover:text-inverse-foreground focus-visible:text-inverse-foreground focus-ring"
               href="/websites"
               >Websites</a
             >
           </li>
           <li>
             <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
+              class="transition-colors hover:text-inverse-foreground focus-visible:text-inverse-foreground focus-ring"
               href="/cases"
               >Cases</a
             >
           </li>
           <li>
             <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
+              class="transition-colors hover:text-inverse-foreground focus-visible:text-inverse-foreground focus-ring"
               href="/werkwijze"
               >Werkwijze</a
             >
           </li>
           <li>
             <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
+              class="transition-colors hover:text-inverse-foreground focus-visible:text-inverse-foreground focus-ring"
               href="/over-ons"
               >Over ons</a
             >
           </li>
           <li>
             <a
-              class="transition-colors hover:text-neutral-0 focus-visible:text-neutral-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-brand-300"
+              class="transition-colors hover:text-inverse-foreground focus-visible:text-inverse-foreground focus-ring"
               href="/contact"
               >Contact</a
             >
@@ -50,7 +50,7 @@ const year = new Date().getFullYear()
       </nav>
     </div>
 
-    <div class="mt-10 border-t border-neutral-800 pt-6 text-sm text-neutral-400">
+    <div class="mt-10 border-t border-inverse-border pt-6 text-sm text-inverse-muted-foreground">
       <p>© {year} Vibefusion. All rights reserved.</p>
     </div>
   </div>
