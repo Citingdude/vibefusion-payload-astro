@@ -1,55 +1,57 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import { tv, type VariantProps } from 'tailwind-variants'
 
 type AnchorAttributes = Omit<HTMLAttributes<'a'>, 'href' | 'target' | 'rel'>
 type ButtonAttributes = Omit<HTMLAttributes<'button'>, 'type'>
 
-type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'outline' | 'ghost'
-type ButtonSize = 'sm' | 'md' | 'lg'
+const appButton = tv({
+  base: 'inline-flex w-full items-center justify-center rounded-br-md rounded-tl-md font-display font-bold transition-all duration-instant ease-standard focus-ring disabled:pointer-events-none disabled:opacity-50 sm:w-fit active:scale-98',
+  variants: {
+    variant: {
+      primary: 'bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active',
+      secondary: 'border border-primary bg-primary-subtle text-foreground hover:bg-primary-muted',
+      tertiary: 'bg-inverse-background text-inverse-foreground hover:bg-inverse-surface active:bg-inverse-border',
+      outline: 'border border-primary text-foreground hover:bg-primary-subtle active:bg-primary-muted',
+      ghost: 'text-primary hover:bg-primary-subtle active:bg-primary-muted',
+    },
+    size: {
+      sm: 'px-4 py-2 text-sm',
+      md: 'px-5 py-3 text-base',
+      lg: 'px-6 py-4 text-lg',
+    },
+    hasIcon: {
+      true: 'gap-2',
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+    size: 'md',
+  },
+})
 
-interface Props extends AnchorAttributes, ButtonAttributes {
+interface Props extends AnchorAttributes, ButtonAttributes, VariantProps<typeof appButton> {
   /**
    * Semantic button treatment. Colours are defined by the shared Tailwind
    * design tokens, rather than by individual colour names.
    */
-  variant?: ButtonVariant
-  size?: ButtonSize
   href?: string | URL
   target?: '_blank' | '_parent' | '_self' | '_top'
   rel?: string
   type?: 'button' | 'submit' | 'reset'
 }
 
-const {
-  variant = 'primary',
-  size = 'md',
-  href,
-  target,
-  rel,
-  type = 'button',
-  class: className,
-  ...attributes
-} = Astro.props
+const { variant, size, href, target, rel, type = 'button', class: className, ...attributes } = Astro.props
 
 const hasIconLeft = Astro.slots.has('icon-left')
 const hasIconRight = Astro.slots.has('icon-right')
 
-const buttonClasses = [
-  'inline-flex w-full items-center justify-center rounded-br-md rounded-tl-md font-display font-bold transition-all duration-instant ease-standard focus-ring disabled:pointer-events-none disabled:opacity-50 sm:w-fit active:scale-98',
-  (hasIconLeft || hasIconRight) && 'gap-2',
-  {
-    sm: 'px-4 py-2 text-sm',
-    md: 'px-5 py-3 text-base',
-    lg: 'px-6 py-4 text-lg',
-  }[size],
-  {
-    primary: 'bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active',
-    secondary: 'border border-primary bg-primary-subtle text-foreground hover:bg-primary-muted',
-    tertiary: 'bg-inverse-background text-inverse-foreground hover:bg-inverse-surface active:bg-inverse-border',
-    outline: 'border border-primary text-foreground hover:bg-primary-subtle active:bg-primary-muted',
-    ghost: 'text-primary hover:bg-primary-subtle active:bg-primary-muted',
-  }[variant],
-]
+const buttonClasses = appButton({
+  variant,
+  size,
+  hasIcon: hasIconLeft || hasIconRight,
+  class: className,
+})
 ---
 
 {
@@ -58,7 +60,7 @@ const buttonClasses = [
       href={href}
       target={target}
       rel={rel}
-      class:list={[buttonClasses, className]}
+      class={buttonClasses}
       {...attributes}
     >
       {hasIconLeft && <slot name="icon-left" />}
@@ -68,7 +70,7 @@ const buttonClasses = [
   ) : (
     <button
       type={type}
-      class:list={[buttonClasses, className]}
+      class={buttonClasses}
       {...attributes}
     >
       {hasIconLeft && <slot name="icon-left" />}
