@@ -1,0 +1,79 @@
+---
+import AppButton from '@/components/app/button/AppButton.astro'
+import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+import IconArrowRight from '@/components/icons/IconArrowRight.astro'
+
+const questions = [
+  {
+    question: 'Kan ik starten als mijn idee nog niet helemaal scherp is?',
+    answer:
+      'Zeker. Je hoeft nog geen uitgewerkt plan te hebben. Vertel ons wat je wilt bereiken en waar je tegenaan loopt. Samen brengen we je verhaal, doelen en de volgende stap in beeld.',
+  },
+  {
+    question: 'Wat als ik al een website heb?',
+    answer:
+      'Dan beginnen we bij wat er al staat. Wat werkt goed, wat mist er en wat past niet meer bij je organisatie? Vanuit die vragen bepalen we samen waar een nieuwe aanpak het verschil kan maken.',
+  },
+  {
+    question: 'Kan ik mijn content zelf aanpassen?',
+    answer:
+      'We bespreken vooraf welke teksten, beelden en pagina’s je zelf wilt beheren. Dat nemen we mee in de opzet van je website. Bij de overdracht laten we je zien hoe je ermee aan de slag gaat.',
+  },
+  {
+    question: 'Wat neem ik mee naar een eerste gesprek?',
+    answer:
+      'Je ambities en vragen zijn een goed begin. Heb je al een website, voorbeelden die je aanspreken of een planning in gedachten? Deel ze gerust. Zo kunnen we gericht meedenken over wat jouw project nodig heeft.',
+  },
+]
+---
+
+<section
+  aria-labelledby="faq-title"
+  class="bg-background pb-16 sm:pb-24 lg:pb-28"
+>
+  <div class="container">
+    <div class="grid gap-10 border-t border-border pt-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20 lg:pt-16">
+      <div class="max-w-md">
+        <AppEyebrow label="Veelgestelde vragen" />
+        <h2
+          id="faq-title"
+          class="mt-4 font-display text-4xl leading-none font-bold text-foreground-strong sm:text-5xl"
+        >
+          Goed om te weten, voor we beginnen.
+        </h2>
+        <p class="mt-5 text-xl leading-relaxed text-foreground-subtle">
+          Een nieuwe website roept vragen op. Hier vind je alvast een paar antwoorden, zodat je met een helder gevoel de
+          eerste stap zet.
+        </p>
+        <AppButton
+          href="/contact"
+          variant="outline"
+          class="mt-8"
+        >
+          Stel je vraag
+          <IconArrowRight slot="icon-right" />
+        </AppButton>
+      </div>
+
+      <div class="divide-y divide-border border-y border-border">
+        {
+          questions.map(({ question, answer }) => (
+            <details class="group">
+              <summary class="flex cursor-pointer list-none items-center justify-between gap-6 rounded-sm py-6 font-display text-2xl leading-tight font-bold text-foreground-strong transition-colors hover:text-primary focus-ring sm:py-7 [&::-webkit-details-marker]:hidden">
+                <span>{question}</span>
+                <span
+                  class="relative flex size-9 shrink-0 items-center justify-center rounded-full bg-primary-subtle text-primary"
+                  aria-hidden="true"
+                >
+                  <span class="absolute h-0.5 w-3.5 bg-current" />
+                  <span class="absolute h-3.5 w-0.5 bg-current group-open:hidden" />
+                </span>
+              </summary>
+              <p class="pb-6 pr-12 text-lg leading-relaxed text-foreground-subtle sm:pb-7">{answer}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
