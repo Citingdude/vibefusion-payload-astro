@@ -1,6 +1,11 @@
 ---
 import type { HTMLAttributes } from 'astro/types'
+import { tv } from 'tailwind-variants'
 import IconVibeMark from '@/components/icons/IconVibeMark.astro'
+
+const appEyebrow = tv({
+  base: 'flex items-center gap-3 text-sm font-bold tracking-wide text-foreground uppercase',
+})
 
 interface Props extends HTMLAttributes<'p'> {
   label: string
@@ -10,7 +15,7 @@ const { label, class: className, ...attributes } = Astro.props
 ---
 
 <p
-  class:list={['flex items-center gap-3 text-sm font-bold tracking-wide text-foreground uppercase', className]}
+  class={appEyebrow({ class: className })}
   {...attributes}
 >
   <IconVibeMark class="w-8" />

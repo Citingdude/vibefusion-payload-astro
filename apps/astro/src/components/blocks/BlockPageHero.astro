@@ -16,7 +16,7 @@ const { eyebrow, title, description, primaryAction, secondaryAction, variant = '
 
 const sectionClasses = {
   light: 'bg-background text-foreground',
-  brand: 'bg-primary text-primary-foreground',
+  brand: 'bg-brand-900 text-primary-foreground',
   dark: 'bg-inverse-background text-inverse-foreground',
 }
 
@@ -49,7 +49,12 @@ const descriptionClasses = {
     <div class="max-w-4xl">
       <AppEyebrow
         label={eyebrow}
-        class:list={['mb-5', variant === 'brand' && 'text-brand-100', variant === 'dark' && 'text-brand-300']}
+        class:list={[
+          'mb-5',
+          variant !== 'light' && '[&_path]:fill-current',
+          variant === 'brand' && 'text-brand-100',
+          variant === 'dark' && 'text-brand-300',
+        ]}
       />
       <h1 class="max-w-3xl font-display text-5xl leading-[0.95] font-bold sm:text-6xl lg:text-7xl">
         {title}
