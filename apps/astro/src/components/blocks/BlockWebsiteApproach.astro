@@ -1,5 +1,6 @@
 ---
 import AppEyebrow from '@/components/app/eyebrow/AppEyebrow.astro'
+import AppPillar from '@/components/app/pillar/AppPillar.astro'
 
 const pillars = [
   {
@@ -42,30 +43,10 @@ const pillars = [
     <ol class="mt-12 grid gap-5 lg:grid-cols-3">
       {
         pillars.map((pillar, index) => (
-          <li
-            class:list={[
-              'relative overflow-hidden rounded-2xl border p-6 sm:p-8',
-              index === 1
-                ? 'border-primary-active bg-primary text-primary-foreground'
-                : 'border-border bg-surface text-foreground',
-            ]}
-          >
-            <span class:list={['font-display text-lg font-bold', index === 1 ? 'text-brand-200' : 'text-primary']}>
-              {pillar.number}
-            </span>
-            <h3 class="mt-10 font-display text-3xl leading-tight font-bold">{pillar.title}</h3>
-            <p class:list={['mt-4 text-lg leading-relaxed', index === 1 ? 'text-brand-100' : 'text-muted-foreground']}>
-              {pillar.description}
-            </p>
-            <ul class:list={['mt-7 space-y-3 border-t pt-6', index === 1 ? 'border-brand-500' : 'border-border']}>
-              {pillar.details.map((detail) => (
-                <li class="flex items-center gap-3">
-                  <span class:list={['size-1.5 rounded-full', index === 1 ? 'bg-brand-200' : 'bg-primary']} />
-                  <span>{detail}</span>
-                </li>
-              ))}
-            </ul>
-          </li>
+          <AppPillar
+            {...pillar}
+            variant={index === 1 ? 'dark' : 'light'}
+          />
         ))
       }
     </ol>

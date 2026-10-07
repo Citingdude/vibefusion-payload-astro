@@ -42,11 +42,13 @@ const steps = [
         </p>
       </div>
 
-      <ol class="relative border-l border-inverse-border pl-7 sm:pl-10">
+      <ol
+        class="relative pl-7 before:absolute before:inset-y-0 before:left-0 before:w-px before:-translate-x-1/2 before:bg-inverse-border sm:pl-10"
+      >
         {
           steps.map((step, index) => (
             <li class:list={['relative pb-9', index === steps.length - 1 && 'pb-0']}>
-              <span class="absolute top-1 -left-[2.15rem] flex size-4 items-center justify-center rounded-full bg-inverse-background ring-1 ring-brand-400 sm:-left-[2.65rem]">
+              <span class="absolute top-1 -left-7 flex size-4 -translate-x-1/2 items-center justify-center rounded-full bg-inverse-background ring-1 ring-brand-400 sm:-left-10">
                 <span class="size-1.5 rounded-full bg-brand-300" />
               </span>
               <p class="text-sm font-bold tracking-widest text-brand-300 uppercase">{step.label}</p>

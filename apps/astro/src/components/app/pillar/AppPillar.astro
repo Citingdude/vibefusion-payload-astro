@@ -1,0 +1,64 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { tv, type VariantProps } from 'tailwind-variants'
+
+const appPillar = tv({
+  slots: {
+    base: 'relative overflow-hidden rounded-2xl border p-6 sm:p-8',
+    number: 'font-display text-lg font-bold',
+    description: 'mt-4 text-lg leading-relaxed',
+    details: 'mt-7 space-y-3 border-t pt-6',
+    dot: 'size-1.5 shrink-0 rounded-full',
+  },
+  variants: {
+    variant: {
+      light: {
+        base: 'border-border bg-surface text-foreground',
+        number: 'text-primary',
+        description: 'text-muted-foreground',
+        details: 'border-border',
+        dot: 'bg-primary',
+      },
+      dark: {
+        base: 'border-inverse-border bg-inverse-background text-inverse-foreground',
+        number: 'text-brand-300',
+        description: 'text-inverse-muted-foreground',
+        details: 'border-inverse-border',
+        dot: 'bg-brand-300',
+      },
+    },
+  },
+  defaultVariants: {
+    variant: 'light',
+  },
+})
+
+interface Props extends Omit<HTMLAttributes<'li'>, 'title'>, VariantProps<typeof appPillar> {
+  number: string
+  title: string
+  description: string
+  details: string[]
+}
+
+const { number, title, description, details, variant, class: className, ...attributes } = Astro.props
+const styles = appPillar({ variant })
+---
+
+<li
+  class={styles.base({ class: className })}
+  {...attributes}
+>
+  <span class={styles.number()}>{number}</span>
+  <h3 class="mt-10 font-display text-3xl leading-tight font-bold">{title}</h3>
+  <p class={styles.description()}>{description}</p>
+  <ul class={styles.details()}>
+    {
+      details.map((detail) => (
+        <li class="flex items-center gap-3">
+          <span class={styles.dot()} />
+          <span>{detail}</span>
+        </li>
+      ))
+    }
+  </ul>
+</li>
