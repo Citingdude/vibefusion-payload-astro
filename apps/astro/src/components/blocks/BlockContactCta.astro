@@ -8,6 +8,7 @@ interface Props {
   title?: string
   description?: string
   action?: { label: string; href: string }
+  topPadding?: boolean
 }
 
 const {
@@ -15,10 +16,11 @@ const {
   title = 'Laten we iets maken dat blijft hangen.',
   description = 'Vertel ons waar je naartoe wilt. Wij denken mee over de slimste route van eerste idee tot sterke digitale ervaring.',
   action = { label: 'Start een project', href: '/contact' },
+  topPadding = false,
 } = Astro.props
 ---
 
-<section class="bg-background pb-16 sm:pb-24 lg:pb-28">
+<section class:list={['bg-background pb-16 sm:pb-24 lg:pb-28', topPadding && 'pt-16 sm:pt-24 lg:pt-28']}>
   <div class="container">
     <div
       class="relative isolate overflow-hidden rounded-2xl bg-primary-subtle px-6 py-10 sm:px-10 sm:py-14 lg:px-16 lg:py-16"
