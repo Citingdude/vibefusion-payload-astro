@@ -66,10 +66,12 @@ const questions = [
                   aria-hidden="true"
                 >
                   <span class="absolute h-0.5 w-3.5 bg-current" />
-                  <span class="absolute h-3.5 w-0.5 bg-current group-open:hidden" />
+                  <span class="absolute h-3.5 w-0.5 bg-current transition-[transform,opacity] duration-normal ease-standard group-open:rotate-90 group-open:opacity-0 motion-reduce:transition-none" />
                 </span>
               </summary>
-              <p class="pb-6 pr-12 text-lg leading-relaxed text-foreground-subtle sm:pb-7">{answer}</p>
+              <div class="min-h-0 overflow-hidden">
+                <p class="pb-6 pr-12 text-lg leading-relaxed text-foreground-subtle sm:pb-7">{answer}</p>
+              </div>
             </details>
           ))
         }
@@ -77,3 +79,25 @@ const questions = [
     </div>
   </div>
 </section>
+
+<style>
+  details::details-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+  }
+
+  details[open]::details-content {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    details::details-content {
+      transition:
+        grid-template-rows var(--duration-normal) var(--ease-standard),
+        opacity var(--duration-normal) var(--ease-standard),
+        content-visibility var(--duration-normal) allow-discrete;
+    }
+  }
+</style>
